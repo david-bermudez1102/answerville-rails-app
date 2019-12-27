@@ -1,0 +1,14 @@
+<% title "Login" %>
+
+<% card_title do %>
+    <i class="fa fa-sign-in" aria-hidden="true"></i>
+    Login
+<% end %>
+
+<% err do %>
+    <%= render 'layouts/flash_message' %>
+<% end %>
+
+<%= render 'layouts/main_container' do %>
+    <%= render partial: 'form', locals:{user:User.new} %>
+<% end %>

@@ -1,0 +1,20 @@
+<%= form_for user, url:signup_path do |f| %>
+    <%= form_group f, user, :name, "Your name" %>
+
+    <%= form_group f, user, :username, "Your Username" %>
+
+    <%= form_group f, user, :email, "Your email" %>
+
+    <%= form_group f, user, :password, "Your Password" %>
+
+    <%= form_group f, user, :password_confirmation, "Confirm Password" %>
+
+    <%= content_tag :div, class:form_group_class+" text-center" do %>
+        <%= f.submit class:sign_up_button_class %>
+    <% end %>
+
+    <%= content_tag :div, class:form_group_class+" text-center" do %>
+        <small><a href="/login" class="card-link text-light">Already have an account? Login here.</a></small>
+    <% end %>
+
+<% end %>

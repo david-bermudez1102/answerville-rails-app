@@ -1,0 +1,17 @@
+<div class="col-md-4">
+  <%= yield :err %>
+    <div class="card bg-transparent border-0">
+        <div class="card-header text-light border-0 form-transparent">
+            <div class="row">
+                <div class="col text-center">
+                    <h1 class="card-title display-4">
+                      <%= yield :card_title %>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <%= card_body do %>
+            <%= yield %>
+        <% end %>
+    </div>
+</div>

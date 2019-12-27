@@ -1,0 +1,2 @@
+class LikeQuestionsController < ApplicationController
+end

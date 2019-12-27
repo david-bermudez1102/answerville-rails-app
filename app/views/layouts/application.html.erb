@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AnswervilleRailsApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title><%= yield :title %> | @nswerville</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-gradient">
+    <%= content_tag :div, class:body_container_class, style:"min-height:100%;" do %>
+      <%= content_tag :header, class:"row" do %>
+        <%= render 'layouts/navigation' %>
+      <% end %>
+
+      <%= content_tag :main, class:main_class do %>
+        <%=yield%>
+      <% end %>
+
+      <%= content_tag :footer, class:footer_class do %>
+        <%= render 'layouts/footer' %>
+      <% end %>
+    <% end %>
   </body>
 </html>
