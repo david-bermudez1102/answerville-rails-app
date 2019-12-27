@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+    before_action :session_already_set
+
     def new
     end
 

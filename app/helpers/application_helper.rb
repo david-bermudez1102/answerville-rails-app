@@ -30,4 +30,8 @@ module ApplicationHelper
             yield
         end
     end
+
+    def col_size(text)
+        content_for :col_size, text
+    end
 end
