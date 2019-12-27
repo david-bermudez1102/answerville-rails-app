@@ -7,10 +7,14 @@
     Sign Up
 <% end %>
 
+<% custom_class %"card-body bg-transparent text-light px-0 p-0" %>
+
 <% err do %>
 <%= render partial: 'layouts/errors', locals:{user:@user} %>
 <% end %>
 
-<%= render 'layouts/main_container' do %>
+<% card_body do %>
     <%= render partial: 'form', locals:{user:@user} %>
 <% end %>
+
+<%= render 'layouts/main_container'%>

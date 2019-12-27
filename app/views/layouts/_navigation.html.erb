@@ -35,7 +35,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/users/<%=current_user.username%>/edit">Edit info</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/logout">Logout</a>
+                  <%= link_to 'Log Out', logout_url, class:"dropdown-item", data: { method: :delete } %>
                 </div>
               </li>
               <% end %>

@@ -10,8 +10,8 @@
     <%= render 'layouts/flash_message' %>
 <% end %>
 
-<%= render 'layouts/main_container' do %>
-    <ul class="list-group bg-transparent">
+<% card_body do %>
+<ul class="list-group bg-transparent">
         <% if @questions.empty? %>
         <li class="list-group-item text-light text-center" style="background-color: rgba(0,0,0,0.1);border-top:1px solid rgba(0,0,0,0.1);">
           <a href="/questions/new" class="card-link text-light">Nobody has asked a question yet! Be the first one</a>
@@ -19,5 +19,6 @@
         <% end %>
         <%= render partial: 'question', collection: @questions %>
       </ul>
-    
 <% end %>
+
+<%= render 'layouts/main_container' %>

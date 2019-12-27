@@ -19,8 +19,17 @@ module ApplicationHelper
         "col navbar navbar-expand-lg navbar-dark bg-transparent shadow scrolling-navbar align-items-center"
     end
     
+    def custom_class(content)
+        content_for :custom_class, content 
+    end
     def card_title
         content_for :card_title do
+            yield
+        end
+    end
+
+    def card_body
+        content_for :card_body do
             yield
         end
     end

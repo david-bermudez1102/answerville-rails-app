@@ -1,0 +1,21 @@
+<%= form_for question do |f| %>
+    <%= content_tag :div, class:"form-group" do %>
+        <%= f.text_area :content, size: '50x5', class:text_field_class(question,:content),  placeholder:"Type your question here. Maximum 500 characters." %>
+    <% end %>
+    <% if !categories.empty? %>
+    <label for="checkbox_group">Pick a category:</label>
+        <% categories.each do |category|%>
+        <div id="checkbox_group" class="form-group form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="question[category_ids][]" id="<%=category.id%>" value="<%=category.id%>"><label class="form-check-label" for="<%=category.id%>"><%=category.name.downcase.capitalize%></label>
+        </div>
+        <% end %>
+    <% end %>
+    <%= content_tag :div, class:"form-group" do %>
+        <%= f.fields_for :categories, question.categories.build do |categories_fields| %>
+        <%= categories_fields.text_field :name, class:text_field_class(question,:name), placeholder:"Enter a new category"%>
+        <% end %>
+    <% end %>
+    <div class="form-group">
+        <input class="btn btn-lg send-btn" type="submit" value="Question">
+    </div>
+<% end %>

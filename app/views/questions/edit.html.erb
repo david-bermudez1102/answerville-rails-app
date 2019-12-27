@@ -1,0 +1,20 @@
+<% title "Edit Question" %>
+
+<% col_size "col-md-5" %>
+
+<% card_title do %>
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    Edit question
+<% end %>
+
+<% err do %>
+    <%= render 'layouts/flash_message' %>
+<% end %>
+
+<% custom_class "card-body bg-light" %>
+
+<% card_body do %>
+    <%= render partial: 'form', locals:{question:@question} %>
+<% end %>
+
+<%= render 'layouts/main_container' %>

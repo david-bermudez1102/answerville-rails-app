@@ -10,8 +10,8 @@
                 </div>
             </div>
         </div>
-        <%= card_body do %>
-            <%= yield %>
-        <% end %>
+        <div class="<%= yield :custom_class %>">
+            <%= yield :card_body %>
+        </div>
     </div>
 </div>
