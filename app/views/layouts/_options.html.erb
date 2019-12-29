@@ -1,0 +1,18 @@
+
+    <div class="row">
+        <div class="col d-flex">
+            <%= render partial:'likes/form', locals:{like:content.likes.new, content:content, options_class:options_class} %>
+        </div>
+        <% if owner?(content) %>
+        <div class="col d-flex pl-0 justify-content-center">
+        <%= link_to [:edit, current_user, content], class:options_class, title:"Edit Content"  do %>
+            <i id="edit_button" class="fa" aria-hidden="true"></i>
+        <% end %>
+        </div>
+        <div class="col d-flex pl-0 justify-content-end">
+        <%= link_to [current_user, content], method: :delete, data:{ confirm:'Are you sure you want to delete this content?' }, class:options_class, title:"Delete Content"  do %>
+            <i id="delete_button" class="fa" aria-hidden="true"></i>
+        <% end %>
+        </div>
+        <% end %>
+    </div>

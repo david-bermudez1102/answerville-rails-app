@@ -1,6 +1,6 @@
 <% title "All Questions" %>
 
-<% col_size "col-md-7" %>
+<% card_title_class "col-md-7" %>
 
 <% card_title do %>
    Welcome <%=current_user.name%>
@@ -10,15 +10,17 @@
     <%= render 'layouts/flash_message' %>
 <% end %>
 
+<% custom_class "card-body bg-transparent px-0 p-0" %>
+
 <% card_body do %>
-<ul class="list-group bg-transparent">
-        <% if @questions.empty? %>
-        <li class="list-group-item text-light text-center" style="background-color: rgba(0,0,0,0.1);border-top:1px solid rgba(0,0,0,0.1);">
-          <a href="/questions/new" class="card-link text-light">Nobody has asked a question yet! Be the first one</a>
-        </li>
-        <% end %>
-        <%= render partial: 'question', collection: @questions %>
-      </ul>
+<ul class="list-group">
+  <% if @questions.empty? %>
+  <li class="list-group-item text-light text-center" style="background-color: rgba(0,0,0,0.1);border-top:1px solid rgba(0,0,0,0.1);">
+  <%= link_to 'Nobody has asked a question yet! Be the first one', new_user_question_path(username), class:"card-link text-light" %>
+  </li>
+  <% end %>
+  <%= render partial: 'question', collection: @questions %>
+</ul>
 <% end %>
 
 <%= render 'layouts/main_container' %>

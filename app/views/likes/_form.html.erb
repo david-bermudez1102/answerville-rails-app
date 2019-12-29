@@ -1,0 +1,9 @@
+<% if !content.liked?(current_user) %>
+    <%= link_to [current_user, content, like], class:options_class, title:"Like", data: { method: :create } do %>
+        <span style="display:block;white-space: nowrap;"><%= content.likes.count %>&nbsp;&nbsp;<i id="like_button" class="fa" aria-hidden="true"></i></span>
+    <% end %> 
+<% else %>
+    <%= link_to [current_user, content, content.liked?(current_user)], class:options_class, title:"Unlike", method: :delete do %>
+        <span style="white-space: nowrap;"><%= content.likes.count %>&nbsp;&nbsp;<i id="unlike_button" class="fa" aria-hidden="true"></i></span>
+    <% end %> 
+<% end %>

@@ -1,0 +1,40 @@
+<% title @question.content %>
+
+<% err do %>
+<%= render 'layouts/flash_message' %>
+<% end %>
+
+<div class="card bg-transparent">
+  <div class="card-header text-light pt-1" style="background-color: rgba(0,0,0,0.1);">
+    <div class="row p-0 justify-content-end" id="question_options" >
+      <div class="<%= @question.user==current_user ? "col-sm-5" : "col-xs-1"%>">
+        <%= render partial:'layouts/options', locals:{content:@question, options_class:"btn bg-transparent p-0 text-light"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <h2 class="card-title display-4">
+          <i class="fa fa-question-circle" aria-hidden="true"></i>
+          <%=@question.content %>
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"><small class="card-subtitle">Categories: <%= categories(@question) %></small></div>
+      <div class="col text-right"><cite><small><%= link_to "By #{@question.user.username}", @question.user, class:"card-link text-light" %></small></cite></div>
+    </div>
+  </div>
+  <div class="card-body bg-light">
+      <% if !@question.answered %>
+        <%= render partial:'answers/form', locals:{answer:@answer, question:@question} %>
+      <% else %>
+        <%= render partial:'answered', locals:{question:@question} %>
+      <% end %>
+    </div>
+    <div class="card-footer" style="background-color: rgba(0,0,0,0.1);">
+      <h3 class="text-light display-4">Answers</h3>
+      <ul class="list-group text-secondary">
+        <%= render(@question.answers) || content_tag(:h4, "No answers yet.", class:"text-light")%> 
+      </ul>
+  </div>
+</div>

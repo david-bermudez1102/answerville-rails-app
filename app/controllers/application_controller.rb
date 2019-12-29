@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :is_logged_in?
+    helper_method :current_user, :is_logged_in?, :username, :owner?
 
     def login_required
         unless is_logged_in?
@@ -21,5 +21,13 @@ class ApplicationController < ActionController::Base
 
     def current_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+    
+    def owner?(content)
+        content.user==current_user
+    end
+
+    def username
+        current_user.username
     end
 end

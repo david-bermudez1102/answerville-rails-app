@@ -1,6 +1,6 @@
 <% title "Edit Question" %>
 
-<% col_size "col-md-5" %>
+<% card_title_class "col-md-5" %>
 
 <% card_title do %>
     <i class="fa fa-plus" aria-hidden="true"></i>
@@ -14,7 +14,7 @@
 <% custom_class "card-body bg-light" %>
 
 <% card_body do %>
-    <%= render partial: 'form', locals:{question:@question} %>
+    <%= render partial: 'form', locals:{question:@question, categories:Category.all} %>
 <% end %>
 
 <%= render 'layouts/main_container' %>

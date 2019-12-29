@@ -6,4 +6,12 @@ module QuestionsHelper
         end
         c
     end
+
+    def categories(content)
+        categories = content.categories.map do |category|
+            category.name
+        end
+        categories.join(", ")
+    end
+
 end

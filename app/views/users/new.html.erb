@@ -1,16 +1,16 @@
 <% title "Sign up" %>
 
-<% col_size "col-md-4" %>
+<% card_title_class "col-md-4" %>
 
 <% card_title do %>
     <i class="fa fa-sign-in" aria-hidden="true"></i>
     Sign Up
 <% end %>
 
-<% custom_class %"card-body bg-transparent text-light px-0 p-0" %>
+<% custom_class "card-body bg-transparent text-light px-0 p-0" %>
 
 <% err do %>
-<%= render partial: 'layouts/errors', locals:{user:@user} %>
+<%= render partial: 'layouts/errors', locals:{model:@user} %>
 <% end %>
 
 <% card_body do %>

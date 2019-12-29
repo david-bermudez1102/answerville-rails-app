@@ -22,6 +22,7 @@ module ApplicationHelper
     def custom_class(content)
         content_for :custom_class, content 
     end
+    
     def card_title
         content_for :card_title do
             yield
@@ -40,7 +41,8 @@ module ApplicationHelper
         end
     end
 
-    def col_size(text)
-        content_for :col_size, text
+    def card_title_class(text)
+        content_for :card_title_class, text
     end
+
 end

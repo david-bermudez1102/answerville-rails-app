@@ -1,14 +1,14 @@
 <% title "New Question" %>
 
-<% col_size "col-md-5" %>
+<% card_title_class "col-md-5" %>
 
 <% card_title do %>
     <i class="fa fa-plus" aria-hidden="true"></i>
-    New question
+    New Question
 <% end %>
 
 <% err do %>
-    <%= render 'layouts/flash_message' %>
+<%= render partial: 'layouts/errors', locals:{model:@question} %>
 <% end %>
 
 <% custom_class "card-body bg-light" %>

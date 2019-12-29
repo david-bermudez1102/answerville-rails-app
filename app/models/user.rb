@@ -21,4 +21,8 @@ class User < ApplicationRecord
     def liked
         self.like_questions + self.like_answers
     end
+
+    def to_param
+        username
+    end
 end

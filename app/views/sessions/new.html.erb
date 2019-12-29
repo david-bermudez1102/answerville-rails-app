@@ -1,12 +1,12 @@
 <% title "Login" %>
-<% col_size "col-md-4" %>
+<% card_title_class "col-md-4" %>
 
 <% card_title do %>
     <i class="fa fa-sign-in" aria-hidden="true"></i>
     Login
 <% end %>
 
-<% custom_class %"card-body bg-transparent text-light px-0 p-0" %>
+<% custom_class "card-body bg-transparent text-light px-0 p-0" %>
 
 <% err do %>
     <%= render 'layouts/flash_message' %>
