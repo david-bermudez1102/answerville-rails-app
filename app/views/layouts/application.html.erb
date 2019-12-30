@@ -18,9 +18,9 @@
       <%= content_tag :header, class:"row" do %>
         <%= render 'layouts/navigation' %>
       <% end %>
-
+      
       <%= content_tag :main, class:main_class do %>
-        <%=yield%>
+          <%= yield%>
       <% end %>
 
       <%= content_tag :footer, class:footer_class do %>

@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     def show
         @question = Question.find_by(id:params[:id])
         @like = @question.likes.new
-        @answer = Answer.new
+        @answer = Answer.new(question:@question)
     end
 
     def new
@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
             redirect_to user_questions_path(username)
         else
             flash[:error] = "The content couldn't be deleted."
-            redirect_to user_question_path(username,@question)
+            redirect_to user_question_path(@question.user,@question)
         end
     end
 

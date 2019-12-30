@@ -1,20 +1,17 @@
 <% title "Sign up" %>
 
-<% card_title_class "col-md-4" %>
+<%= content_tag :div, class:"col-md-4" do %>
+    <%= render partial: 'layouts/errors', locals:{model:@user} %>
 
-<% card_title do %>
-    <i class="fa fa-sign-in" aria-hidden="true"></i>
-    Sign Up
+    <%= card do %>
+        <%= card_header do %>
+            <%= cell "row", "col text-center" do %>
+            <%= card_title :h1, icon:"fa-sign-in", label:"Sign Up" %>
+            <% end %>
+        <% end %>
+
+        <%= card_body class:signup_card_body do %>
+            <%= render partial: 'form', locals:{user:@user} %>
+        <% end %>
+    <% end %>
 <% end %>
-
-<% custom_class "card-body bg-transparent text-light px-0 p-0" %>
-
-<% err do %>
-<%= render partial: 'layouts/errors', locals:{model:@user} %>
-<% end %>
-
-<% card_body do %>
-    <%= render partial: 'form', locals:{user:@user} %>
-<% end %>
-
-<%= render 'layouts/main_container'%>

@@ -5,17 +5,21 @@ Rails.application.routes.draw do
   resources :users do
     resources :questions do
       resources :likes, controller: 'like_questions', only:[:new,:create,:destroy], as: :like_questions
-      resources :answers, only:[:new,:create]
     end
 
-    resources :answers, only:[:index,:edit,:update,:destroy]
+    resources :answers, only:[:new,:create,:index,:edit,:update,:destroy]
 
     resources :answers, only:[:show] do
       resources :likes, controller: 'like_answers', only:[:new,:create,:destroy], as: :like_answers
     end
+
+    resources :followers
+    resources :following
+
+    resources :likes, only:[:index]
   end
 
-  get '/', to:'welcome#home', as:'root'
+  get '/', to:'welcome#home', as:'root', controller:"welcome"
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   delete 'logout', to:'sessions#destroy', as:'logout'

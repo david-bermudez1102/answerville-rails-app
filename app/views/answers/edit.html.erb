@@ -1,0 +1,25 @@
+<% title "Edit Answer" %>
+
+<%= content_tag :div, class:"col-md-5" do %>
+    <%= render 'layouts/flash_message' %>
+    <%= card do %>
+        <%= card_header do %>
+            <%= cell "row", "col text-center" do %>
+                <%= card_title :h1, icon:"fa-pencil", label:"Edit Answer" %>
+            <% end %>
+        <% end %>
+
+        <%= card_body class:answer_card_body do %>
+            <%= render partial:'form', locals:{answer:@answer} %>
+        <% end %>
+
+        <%= card_footer class:card_footer_class do %>
+            <%= content_tag :h3, 'Original Question', class:h3_class %>
+            <%= ul class:answer_ul do %>
+                <%= li class:answer_li do %>
+                    <%= @answer.question.content %>
+                <% end %>
+            <% end %>
+        <% end %>
+  <% end %>
+<% end %>

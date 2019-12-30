@@ -1,19 +1,17 @@
-<li class="list-group-item bg-light">
-    <div class="row">
-    <div class="col">
-        <h5 class="card-title">
-        <i class="fa fa-user color-light" aria-hidden="true"></i>
-        <%=answer.user.username %> wrote
-        </h5>
-    </div>
-    <div class="col-8 text-right"><small>Created <%=distance_of_time_in_words(answer.created_at.to_i, Time.now)%> ago. Updated <%=distance_of_time_in_words(answer.updated_at.to_i, Time.now)%> ago.</small></div>
-    </div>
-    <div class="row bg-white">
-    <div class="col card-text py-2"><%=answer.content%></div>
-    </div>
-    <div class="row justify-content-around">
-        <div class="col">
-            <%= render partial:'layouts/options', locals:{content:answer, options_class:"btn p-0 bg-transparent text-primary"} %>
-        </div>
-    </div>
-</li>
+<%= li class:question_li do %>
+<%= cell "row", "col d-flex justify-content-between" do %>
+    <%= content_tag :h5, class:answer_header_title do %>
+        <%= icon "fa-user color-light" %>
+        <%= answer.user.username %> wrote
+    <% end %>
+        <%= content_tag :small do %>
+            Created <%=distance_of_time_in_words(answer.created_at.to_i, Time.now)%> ago. Updated <%=distance_of_time_in_words(answer.updated_at.to_i, Time.now)%> ago.
+        <% end %>
+      <% end %>
+      <%= cell "row bg-white", "col card-text py-2" do %>
+    <%=answer.content%>
+    <% end %>
+    <%= cell "row", "col" do %>
+        <%= render partial:'layouts/options', locals:{content:answer, options_class:"btn p-0 bg-transparent text-primary"} %>
+    <% end %>
+<% end %>

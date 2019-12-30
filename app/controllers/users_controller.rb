@@ -15,6 +15,11 @@ class UsersController < ApplicationController
        end
     end
 
+    def show
+        @user = User.find_by(username:params[:id])
+        @questions = @user.questions.order(id: :desc)
+    end
+
     private
         def user_params
             params.require(:user).permit(:name,:username,:email,:password,:password_confirmation)
