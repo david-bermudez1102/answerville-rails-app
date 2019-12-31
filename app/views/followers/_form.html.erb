@@ -1,0 +1,9 @@
+<% if !user.followers.include?current_user %>
+
+    <%= link_to "Follow", user_followers_path(user), class:follow_button, method: :create %>
+
+<% else %>
+
+    <%= link_to "Unfollow", user_follower_path(user,current_user), class:follow_button, method: :delete %>
+
+<% end %>

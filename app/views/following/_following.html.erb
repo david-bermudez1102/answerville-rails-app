@@ -1,0 +1,12 @@
+<%= li class:connections_li do %>
+  <%= cell "row", "col align-items-center d-flex" do %>
+    <%= content_tag :div, class:'col' do %>
+      <%= content_tag :h5, class:'card-title my-auto' do %>
+        <%= link_to display_connected_user(following), following, class:"card-link text-light" %>
+      <% end %>
+    <% end %>
+    <%= content_tag :div, class:'col' do %>
+      <%= render(partial:'followers/form', locals:{user:following}) if following != current_user %>
+    <% end %>
+  <% end %>
+<% end %>

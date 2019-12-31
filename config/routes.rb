@@ -13,8 +13,9 @@ Rails.application.routes.draw do
       resources :likes, controller: 'like_answers', only:[:new,:create,:destroy], as: :like_answers
     end
 
-    resources :followers
-    resources :following
+    resources :followers, only:[:new,:create,:destroy], controller: 'connections'
+    resources :followers, only:[:index], to: 'connections#followers'
+    resources :following, only:[:index], to: 'connections#following'
 
     resources :likes, only:[:index]
   end

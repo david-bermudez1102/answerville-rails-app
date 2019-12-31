@@ -39,8 +39,12 @@ module UsersHelper
         "card-body bg-transparent text-light px-0 p-0"
     end
 
+    def user_questions_ul
+        "list-group bg-transparent"
+    end
+
     def no_user_questions_li
-        "list-group-item border border-0 display-4 text-center d-flex align-items-center"
+        "list-group-item border border-0 display-4 text-center d-flex align-items-center custom-bg-t font-30"
     end
 
     def user_questions_list_title
@@ -62,5 +66,13 @@ module UsersHelper
 
     def user_menu_item_link
         "card-link text-light"
+    end
+
+    def user_menu_title
+        "card-title display-4 user-menu-title"
+    end
+
+    def follow_button
+        "btn btn-lg btn-block send-btn follow_button"
     end
 end
