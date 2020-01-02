@@ -1,7 +1,7 @@
 class ConnectionsController < ApplicationController
     def create
         user = User.find_by(username:params[:user_id])
-        user.followers << current_user unless user.followers.include?current_user
+        user.followers << current_user unless (user.followers.include?(current_user) || user==current_user)
         redirect_to user
     end
 

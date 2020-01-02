@@ -46,6 +46,10 @@ module ConnectionsHelper
     "list-group-item custom-bg-t text-light border-0"
   end
 
+  def no_connections_li
+    "list-group-item bg-transparent text-light border-0"
+  end
+
   def display_connected_user(user)
      "#{user.name} - #{user.username}"
   end
@@ -64,9 +68,10 @@ module ConnectionsHelper
 
     def no_followers(user)
         if user!=current_user
-            content_tag :h4, class:"text-light" do
-                "#{user.name} has no followers yet. Be the first one to follow them!"
-            end
+          capture do 
+            concat content_tag :h4, "#{user.name} has no followers yet. Be the first one to follow them!", class:"text-light" 
+            concat content_tag :div, render(partial:'followers/form', locals:{user:user}), class:"col-sm-5 m-auto"
+          end
         else
             content_tag :h4, class:"text-light" do
                 "No Followers yet. Try asking more questions to get more followers and make @nswerville more fun!"

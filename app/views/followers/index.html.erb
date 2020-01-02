@@ -13,7 +13,9 @@
 
     <%= card_body class:connections_card_body do %>
       <%= ul class:connections_ul do %>
-        <%= render(partial:'followers/follower', collection:@user.followers) || no_followers(@user) %>
+        <%= render(partial:'followers/follower', collection:@user.followers) || li(class:no_connections_li) do %>
+          <%= no_followers @user %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

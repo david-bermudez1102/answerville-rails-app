@@ -34,7 +34,7 @@
       <%= content_tag :h3, 'Answers', class:h3_class %>
         <%= ul class:question_ul do %>
           <%= li class:question_li do %>
-            <%= render(@question.answers) || content_tag(:h4, "No answers yet.", class:no_answers) %>
+            <%= render(@question.answers.order(id: :desc)) || content_tag(:h4, "No answers yet.", class:no_answers) %>
           <% end %>
         <% end %>
     <% end %>
