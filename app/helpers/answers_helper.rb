@@ -20,6 +20,10 @@ module AnswersHelper
        "list-group-item bg-light" 
     end
 
+    def answered_questions_li
+        "list-group-item custom-bg-t"
+    end
+
     def answer_header_title
         "card-title"
     end
