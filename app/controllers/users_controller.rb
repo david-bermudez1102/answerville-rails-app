@@ -20,6 +20,12 @@ class UsersController < ApplicationController
         @questions = @user.questions.order(id: :desc)
     end
 
+    def likes
+        @user = User.find_by(username:params[:user_id])
+        @dates_liked = @user.liked.group_by(&:date)
+        render 'likes/index'
+    end
+
     private
         def user_params
             params.require(:user).permit(:name,:username,:email,:password,:password_confirmation)

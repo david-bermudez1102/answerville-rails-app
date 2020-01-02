@@ -75,4 +75,37 @@ module UsersHelper
     def follow_button
         "btn btn-lg btn-block send-btn follow_button"
     end
+
+    def content_liked_header_title(user)
+        if user.liked.empty?
+            "#{reference(user)} #{have?(user)}n't liked anything yet!"
+        else
+            "Content #{reference(user)} #{have?(user)} liked"
+        end
+    end
+
+    def content_liked_title(user)
+        "Content #{reference(user)} #{have?(user)} liked"
+    end
+
+    def content_liked_by(user, content)
+        capture do
+            concat "#{reference(user)} liked the #{content.type.capitalize} " 
+            concat content_tag(:cite, content.content)
+            concat " by "
+            concat content_tag(:cite, content.user.username)
+        end
+    end
+
+    def liked_ul
+        "list-group bg-transparent text-light p-0"
+    end
+    
+    def liked_li
+        "list-group-item display-4 liked-list text-center"
+    end
+
+    def liked_card_body
+        "card-body bg-transparent px-0"
+    end
 end

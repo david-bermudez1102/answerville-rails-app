@@ -20,6 +20,10 @@ class Question < ApplicationRecord
         self.likes.find_by(user:user)
     end
 
+    def type
+        "question"
+    end
+
     private
         def capitalize_categories
             self.categories.map do |category|

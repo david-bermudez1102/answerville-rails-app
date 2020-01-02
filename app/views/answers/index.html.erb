@@ -19,12 +19,14 @@
                   <%= render question.answers.order(id: :desc) %>
                 <% end %>
                 <%= cell "text-muted row text-light", "col text-light" do %>
-                    Answers to <cite><%= link_to question.content, [question.user, question], class:'card-link text-light' %></cite> Created by <cite><%=question.user.username%></cite>
+                  Answers to <cite><%= link_to question.content, [question.user, question], class:'card-link text-light' %></cite> Created by <cite><%=question.user.username%></cite>
                 <% end %>
               <% end %>
             <% end %>
         <% end %>
       <% end %>
     <% end %>
+    
   <% end %>
+
 <% end %>

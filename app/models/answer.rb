@@ -8,4 +8,8 @@ class Answer < ApplicationRecord
     def liked?(user)
         self.likes.find_by(user:user)
     end
+
+    def type
+        "answer"
+    end
 end

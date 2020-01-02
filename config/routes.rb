@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :followers, only:[:index], to: 'connections#followers'
     resources :following, only:[:index], to: 'connections#following'
 
-    resources :likes, only:[:index]
+    resources :likes, to:'users#likes', only:[:index]
   end
 
   get '/', to:'welcome#home', as:'root', controller:"welcome"

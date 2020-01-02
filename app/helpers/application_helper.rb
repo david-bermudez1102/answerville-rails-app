@@ -1,4 +1,20 @@
 module ApplicationHelper
+    def reference(user)
+        user != current_user ? user.username : "you"
+    end
+
+    def have?(user)
+        user != current_user ? "has" : "have"
+    end
+
+    def display_date(d)
+        d.strftime("%A, %B %d, %Y")
+    end
+
+    def display_time(d)
+        d.strftime("%I:%M %p")
+    end
+
     def title(text)
         content_for :title, text
     end
