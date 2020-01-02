@@ -13,7 +13,7 @@ module AnswersHelper
     end
 
     def answers_ul
-       "list-group-item bg-light" 
+       "list-group bg-light" 
     end
 
     def answers_li
@@ -38,5 +38,17 @@ module AnswersHelper
 
     def wrote(user)
         user != current_user ? "#{user.username} wrote" : "You wrote"
+    end
+
+    def no_questions_answered(user)
+        ul class:questions_ul do
+            li class:questions_li do
+                if user != current_user 
+                    "#{@user.name} hasn't answered any questions yet."
+                else
+                    link_to "You haven't answered any question yet. Click here to start answering questions", root_url             
+                end
+            end
+        end
     end
 end

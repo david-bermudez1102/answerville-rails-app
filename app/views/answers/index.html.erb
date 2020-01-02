@@ -1,3 +1,4 @@
+
 <% title "All #{@user.username} Answers" %>
 
 <%= content_tag :div, class:"col-md-7" do %>
@@ -10,28 +11,20 @@
     <% end %>
 
     <%= card_body class:answers_card_body do %>
-        <% if @user.answers.empty? %>
-        <ul class="list-group bg-transparent">
-          <li class="list-group-item text-light text-center" style="background-color: rgba(0,0,0,0.1);border-top:1px solid rgba(0,0,0,0.1);">
-            <a href="/questions" class="card-link text-light"><%= @user != current_user ? "#{@user.name} hasn't" : "You haven't"%> answered any question yet. Click here to start answering questions!</a>
-          </li>
-        </ul>
-        <% end %>
-        <% @questions.each do |question,c| %>
-        <ul class="list-group bg-transparent">
+      <%= no_questions_answered(@user) if @user.answers.empty? %>
+        <% @questions.keys.each do |question| %>
+        <%= ul class:questions_ul do %>
           <li class="list-group-item" style="background-color: rgba(0,0,0,0.1);border-top:1px solid rgba(0,0,0,0.1);">
             <blockquote>
-              <ul class="list-group">
-              <%= render(question.answers.order(id: :desc)) || content_tag(:h4, "No answers yet.", class:no_answers) %>
-              </ul>
-              <footer class="text-muted row text-light">
-                <div class="col text-light">
+              <%= ul class:"list-group" do %>
+                <%= render(question.answers.order(id: :desc)) || content_tag(:h4, "No answers yet.", class:no_answers) %>
+              <% end %>
+              <%= cell "text-muted row text-light", "col text-light" do %>
                   Answers to <cite><a href="/questions/<%=question.id%>" class="card-link text-light">"<%=question.content%>"</a></cite> Created by <cite><%=question.user.username%></cite>
-                </div>
-              </footer>
+              <% end %>
             </blockquote>
           </li>
-        </ul>
+        <% end %>
         <% end %>
     <% end %>
   <% end %>

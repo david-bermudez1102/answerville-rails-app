@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
         else
             flash[:error] = "The content couldn't be deleted."            
         end
-        redirect_to user_question_path(@answer.question.user,@answer.question)
+        redirect_to user_question_path(@answer.question.user,@answer.question)  
     end
 
     private
