@@ -32,7 +32,7 @@ module ApplicationHelper
     end
 
     def navbar_class
-        "navbar navbar-expand-lg navbar-dark bg-transparent shadow scrolling-navbar align-items-center p-0 h-100"
+        "row navbar navbar-expand-lg navbar-dark bg-transparent shadow scrolling-navbar align-items-center"
     end
 
     def navbar_brand
@@ -40,15 +40,15 @@ module ApplicationHelper
     end
 
     def navbar_ul
-        "navbar-nav d-flex py-0 h-100"
+        "navbar-nav"
     end
 
     def navbar_li(path)
-        "nav-item h-100 py-0 align-items-center #{active_page(path)}"
+        "nav-item align-items-center #{active_page(path)}"
     end
 
     def navbar_link
-        "nav-link h-100"
+        "nav-link"
     end
 
     def navbar_dropdown_divider

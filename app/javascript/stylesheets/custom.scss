@@ -94,20 +94,3 @@ html, body{
 .logo{
   font-size:32px;
 }
-
-.navbar-nav a {
-  text-transform: capitalize;
-  color: #333;
-  transition: background-color .2s, color .2s;
-
-  &:hover,
-  &:focus {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #fff;
-  }
-}
-
-.navbar-nav a.active {
-   background-color: rgba(0, 0, 0, 0.1);
-  color: #fff;
-}
