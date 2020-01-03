@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :questions, only:[:index]
 
-  resources :users do
+  resources :users, only:[:show]do
     resources :questions do
       resources :likes, controller: 'like_questions', only:[:new,:create,:destroy], as: :like_questions
     end
@@ -20,11 +20,14 @@ Rails.application.routes.draw do
     resources :likes, to:'users#likes', only:[:index]
   end
 
+  get '/signup', to:"users#new", as:'signup'
+  resources :users, only:[:create], path:'signup'
+  resources :users, only:[:edit, :update]
+
   get '/', to:'welcome#home', as:'root', controller:"welcome"
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   delete 'logout', to:'sessions#destroy', as:'logout'
-  get 'signup', to:'users#new', as:'signup'
-  post 'signup', to:'users#create'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

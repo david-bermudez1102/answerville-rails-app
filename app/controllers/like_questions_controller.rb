@@ -1,5 +1,6 @@
 class LikeQuestionsController < ApplicationController
-
+    before_action :login_required
+    
     def create
         question = Question.find_by(id:params[:question_id])
         question.likes.create(user:current_user) unless question.liked?(current_user)

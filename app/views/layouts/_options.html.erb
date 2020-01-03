@@ -10,7 +10,7 @@
         <% end %>
         </div>
         <div class="col d-flex pl-0 justify-content-end">
-        <%= link_to [current_user, content], method: :delete, data:{ confirm:'Are you sure you want to delete this content?' }, class:options_class, title:"Delete Content"  do %>
+        <%= link_to [current_user, content], method: :delete, data:{ confirm:"Are you sure you want to delete this #{content.type}?" }, class:options_class, title:"Delete Content"  do %>
             <i id="delete_button" class="fa" aria-hidden="true"></i>
         <% end %>
         </div>

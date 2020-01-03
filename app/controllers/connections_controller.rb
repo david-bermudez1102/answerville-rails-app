@@ -1,4 +1,6 @@
 class ConnectionsController < ApplicationController
+    before_action :login_required
+    
     def create
         user = User.find_by(username:params[:user_id])
         user.followers << current_user unless (user.followers.include?(current_user) || user==current_user)

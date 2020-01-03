@@ -2,7 +2,8 @@
 
 <%= content_tag :div, class:"col-md-4" do %>
     <%= render partial: 'layouts/errors', locals:{model:@user} %>
-
+    <%= render 'layouts/flash_message' %>
+    
     <%= card do %>
         <%= card_header do %>
             <%= cell "row", "col text-center" do %>
@@ -12,6 +13,9 @@
 
         <%= card_body class:signup_card_body do %>
             <%= render partial: 'form', locals:{user:@user} %>
+            <%= content_tag :div, class:form_group_class+" text-center" do %>
+             <small><%= link_to 'Already have an account? Login here.', login_path, class:"card-link text-light" %></small>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>
