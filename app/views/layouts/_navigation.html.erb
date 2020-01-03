@@ -1,45 +1,29 @@
 <%= content_tag :nav, class:navbar_class do %>
-    <div class="container">
-        <a class="navbar-brand display-1" style="font-size:32px;" href="/">@nswerville</a>
+    <div class="container py-0 my-0 h-100">
+        <%= link_to '@nswerville', root_path, class:navbar_brand %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav d-flex align-items-center">
-            <% if is_logged_in? %>
-              <li class="nav-item">
-                <form class="" action="/search" method="get">
-                  <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search Content" aria-label="Search Content" aria-describedby="search-addon2">
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-outline-light text-light" id="search-addon2"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </form>
-              </li>
+        <%= content_tag :div, class:navbar_content, id:"navbarSupportedContent" do %>
+        <%= ul class:navbar_ul do %>
+          <%= content_tag(:li, render('users/search'), class:navbar_link) if is_logged_in? %>
+          <%= content_tag(:li, link_to("Home", root_path, class:navbar_link), class:navbar_li(root_path)) unless is_logged_in? %>
+          <%= content_tag(:li, link_to("All Questions", root_path, class:navbar_link), class:navbar_li(questions_path)) if is_logged_in? %>
+          <%= content_tag(:li, link_to("New Question", [:new, current_user, :question], class:navbar_link), class:navbar_li([:new, current_user, :question])) if is_logged_in? %>
+          <% if is_logged_in? %>
+            <%= content_tag(:li, class:"nav-item dropdown") do %>
+            <%= link_to icon('fa-user')+" Account", '#', class:"#{navbar_link} dropdown-toggle", id:"navbarDropdown", "role":"button", data:{toggle:"dropdown"}, aria:{haspopup:true,expanded:false} %>
+              <%= content_tag :div, class:"dropdown-menu", aria:{labelledby:"navbarDropdown"} do %>
+                <%= link_to "My Profile", current_user, class:"dropdown-item #{active_page(current_user)}" %>
+                <%= navbar_dropdown_divider %>
+                <%= link_to "Edit Info", [:edit, current_user], class:"dropdown-item" %>
+                <%= navbar_dropdown_divider %>
+                <%= link_to 'Log Out', logout_url, class:"dropdown-item", data: { method: :delete } %>
               <% end %>
-           <li class="nav-item active">
-                <a class="nav-link" href="/"><%= is_logged_in? ? "All Questions" : "Home" %><span class="sr-only">(current)</span></a>
-              </li>
-              <% if is_logged_in? %>
-              <li class="nav-item">
-                <%= link_to 'New Question', new_user_question_url(username), class:"nav-link" %>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-user"></i>&nbsp;Account
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/users/<%=current_user.username%>">My Profile</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/users/<%=current_user.username%>/edit">Edit info</a>
-                  <div class="dropdown-divider"></div>
-                  <%= link_to 'Log Out', logout_url, class:"dropdown-item", data: { method: :delete } %>
-                </div>
-              </li>
-              <% end %>
-        </ul>
-        </div>
-    </div>
+            <% end %>
+        <% end %>
+        <% end %>
+  <% end %>
+  </div>
 <% end %>

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :users, only:[:create], path:'signup'
   resources :users, only:[:edit, :update]
 
+  get '/search', to:"application#search", as:'search'
   get '/', to:'welcome#home', as:'root', controller:"welcome"
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'

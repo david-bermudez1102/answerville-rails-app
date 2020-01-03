@@ -1,7 +1,5 @@
 html, body{
-  min-height:100%;
-  min-width:100%;
-  position: absolute;
+
 }
 #like_button:before{
   content:"\f087";
@@ -91,4 +89,25 @@ html, body{
   font-size:24px;
   background-color: rgba(0, 0, 0, 0.1);
   border-top:1px solid rgba(0, 0, 0, 0.1);
+}
+
+.logo{
+  font-size:32px;
+}
+
+.navbar-nav a {
+  text-transform: capitalize;
+  color: #333;
+  transition: background-color .2s, color .2s;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #fff;
+  }
+}
+
+.navbar-nav a.active {
+   background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
 }

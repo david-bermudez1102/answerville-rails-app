@@ -1,6 +1,6 @@
-<% title "Welcome to Answerville!" %>
+<% title "Welcome" %>
 
-<%= content_tag :div, class:"col-md-8" do %>
+<%= content_tag :div, class:"col-xl-7" do %>
   <%= render 'layouts/flash_message' %>
 
   <%= card do %>
@@ -11,14 +11,15 @@
       <% end %>
 
       <%= card_body class:welcome_card_body do %>
-          <div class="list-group-item border-0 px-5 text-center" style="background-color: rgba(0,0,0,0.1);">
-            <h2 class="card-subtitle display-4" style="font-size:36px;">A place where you can ask and anybody can answer</h2>
-          </div>
-          <div class="list-group-item py-4 text-center" style="background-color: rgba(0,0,0,0.1);">
-            <div class="container-fluid align-items-center" style="display:flex;width:40%;justify-content:space-between;">
-              <a href="/login" class="btn btn-lg send-btn" style="color:#fff;border:2px solid #fff;">Login</a> or <a href="/signup" class="btn btn-lg send-btn" style="color:#fff;border:2px solid #fff;">Signup</a>
-            </div>
-          </div>
+        <%= content_tag :div, class:welcome_message do %>
+          <%= content_tag :div,"A place where you can ask and anybody can answer", class:"card-subtitle display-4", style:"font-size:36px;" %>
+        <% end %>
+        <%= content_tag :div, class:welcome_options do %>
+          <%= content_tag :div, class:welcome_options_container do %>
+            <%= link_to 'Login', login_path, class:welcome_options_button %> or
+            <%= link_to 'Sign Up', signup_path, class:welcome_options_button %> 
+          <% end %>
+        <% end %>
       <% end %>
   <% end %>
 <% end %>

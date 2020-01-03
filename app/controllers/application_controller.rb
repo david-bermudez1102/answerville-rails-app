@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
     helper_method :current_user, :is_logged_in?, :username, :owner?
 
+    def search
+        
+    end
+
     def login_required
         unless is_logged_in?
             flash[:error] = "Login Required."

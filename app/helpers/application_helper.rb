@@ -32,7 +32,39 @@ module ApplicationHelper
     end
 
     def navbar_class
-        "col navbar navbar-expand-lg navbar-dark bg-transparent shadow scrolling-navbar align-items-center"
+        "navbar navbar-expand-lg navbar-dark bg-transparent shadow scrolling-navbar align-items-center p-0 h-100"
+    end
+
+    def navbar_brand
+        "navbar-brand display-1 logo h-100 py-0"
+    end
+
+    def navbar_ul
+        "navbar-nav d-flex py-0 h-100"
+    end
+
+    def navbar_li(path)
+        "nav-item h-100 py-0 align-items-center #{active_page(path)}"
+    end
+
+    def navbar_link
+        "nav-link h-100"
+    end
+
+    def navbar_dropdown_divider
+        content_tag :div, nil, class:"dropdown-divider"
+    end
+
+    def navbar_content
+        "collapse navbar-collapse justify-content-end h-100 p-0 m-0"
+    end
+
+    def active_page(path)
+        "active" if current_page?(path)
+    end
+
+    def search_button
+        "btn btn-outline-light text-light"            
     end
     
     def custom_class(content)
