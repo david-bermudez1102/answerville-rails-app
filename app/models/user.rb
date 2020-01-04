@@ -29,5 +29,30 @@ class User < ApplicationRecord
     def name
         self[:name].split.map(&:capitalize).join(' ') unless self[:name].nil?
     end
-    
+
+     def generate_username
+        username = ActiveSupport::Inflector.transliterate(self.name) # change ñ => n
+        .downcase              # only lower case
+        .strip                 # remove spaces around the string
+        .gsub(/[^a-z]/, '_')   # any character that is not a letter or a number will be _
+        .gsub(/\A_+/, '')      # remove underscores at the beginning
+        .gsub(/_+\Z/, '')      # remove underscores at the end
+        .gsub(/_+/, '_')       # maximum an underscore in a row
+
+        find_unique_username(username)
+    end
+
+    def find_unique_username(username)
+        user = User.find_by(username:username)
+        unless user
+            username
+        else
+            count = 0
+            while true do
+                new_username = "#{username}_#{count}"
+                return new_username unless User.find_by(username:new_username)
+                count += 1
+            end
+        end
+    end
 end

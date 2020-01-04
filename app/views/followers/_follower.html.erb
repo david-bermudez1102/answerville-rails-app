@@ -1,12 +1,13 @@
 <%= li class:connections_li do %>
-  <%= cell "row", "col align-items-center d-flex" do %>
-    <%= content_tag :div, class:'col' do %>
+  <%= cell "row justify-content-center", "col-xl-9 align-items-center d-flex justify-content-center flex-wrap" do %>
+     <%= render_connections_img(follower) %> 
+      <span class="pl-4 text-nowrap">
       <%= content_tag :h5, class:'card-title my-auto' do %>
-        <%= link_to display_connected_user(follower), follower, class:"card-link text-light" %>
+        <%= link_to "@#{follower.username}", follower, class:"card-link text-light" %>
       <% end %>
-    <% end %>
-    <%= content_tag :div, class:'col' do %>
-      <%= render(partial:'followers/form', locals:{user:follower}) if follower != current_user %>
-    <% end %>
+      </span>
+      <span class="pl-4 text-nowrap">
+        <%= render(partial:'followers/form', locals:{user:follower}) if follower != current_user %>
+      </span>
   <% end %>
 <% end %>

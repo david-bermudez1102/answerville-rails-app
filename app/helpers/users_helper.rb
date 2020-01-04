@@ -1,5 +1,5 @@
 module UsersHelper
-    
+
     def form_group_class
         "form-group list-group-item border-0 px-5 form-transparent"
     end
@@ -73,7 +73,7 @@ module UsersHelper
     end
 
     def follow_button
-        "btn btn-lg btn-block send-btn follow_button"
+        "btn btn-lg send-btn follow_button"
     end
 
     def content_liked_header_title(user)

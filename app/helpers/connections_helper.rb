@@ -4,7 +4,7 @@ module ConnectionsHelper
       "People you are following"
     else
       capture do
-        concat "People "
+        concat "People @"
         concat link_to(user.username, user, class:'card-link text-light') + " is following"
       end
     end
@@ -14,7 +14,7 @@ module ConnectionsHelper
     if user==current_user
       "People you are following"
     else
-      "People #{user.username} is following"
+      "People @#{user.username} is following"
     end
   end
 
@@ -22,7 +22,7 @@ module ConnectionsHelper
     if user==current_user
       "Your Followers"
     else
-      link_to(user.username, user, class:'card-link text-light')+" Followers"
+      link_to("@#{user.username}", user, class:'card-link text-light')+" Followers"
     end
   end
 
@@ -30,7 +30,7 @@ module ConnectionsHelper
     if user==current_user
       "Your Followers"
     else
-      "#{user.username} Followers"
+      "@#{user.username} Followers"
     end
   end
 
@@ -51,7 +51,7 @@ module ConnectionsHelper
   end
 
   def display_connected_user(user)
-     "#{user.name} - #{user.username}"
+     "#{user.name} - @#{user.username}"
   end
 
   def not_following_anyone(user)
