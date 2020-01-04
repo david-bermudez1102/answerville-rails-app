@@ -156,4 +156,12 @@ module ApplicationHelper
     def w_100
         content_tag :div, nil, class:"w-100"
     end
+
+    def render_img(user)
+        if user.image
+           image_tag(user.image, class:"circular--square") 
+        else
+            content_tag :i, nil, class:"fa fa-user", "aria-hidden":true, style:"font-size: 140px;"
+        end
+    end
 end

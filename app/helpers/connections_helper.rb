@@ -78,4 +78,12 @@ module ConnectionsHelper
             end
         end
     end
+
+    def render_connections_img(user)
+        if user.image
+           image_tag(user.image, class:"circular--square", size:"50x50") 
+        else
+            content_tag :i, nil, class:"fa fa-user", "aria-hidden":true, style:"font-size: 50px;"
+        end
+    end
 end

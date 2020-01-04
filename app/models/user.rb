@@ -3,8 +3,8 @@ class User < ApplicationRecord
     validates :name, length: { minimum: 6 }
     validates :username, length: { minimum: 6 }, format: { with: /\A[a-zA-Z0-9-_.]+\Z/, message:"can't have any spaces or special characters, except for dashes or dots" }, uniqueness: true
     validates :email, format: {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}, uniqueness: {message:"already belongs to an existing account"}
-    validates :password, presence: true, length: { in: 6..20 }, format: { without: /\s/ }, :on => :create
-    validates :password, presence: true, length: { in: 6..20 }, format: { without: /\s/ }, :on => :update, :unless => lambda{ |user| user.password.to_s.empty? }
+    validates :password, presence: true, length: { in: 6..50 }, format: { without: /\s/ }, :on => :create
+    validates :password, presence: true, length: { in: 6..50 }, format: { without: /\s/ }, :on => :update, :unless => lambda{ |user| user.password.to_s.empty? }
     has_secure_password
 
     has_many :questions

@@ -4,8 +4,12 @@
 
     <%= form_group f, user, :password, "Enter your Password" %>
 
-    <%= content_tag :div, class:form_group_class+" text-center" do %>
+    <%= content_tag :div, class:form_group_class+" text-light d-flex justify-content-between px-0 align-items-center" do %>
         <%= f.submit "Login", class:sign_up_button_class %>
+        or
+        <%= link_to '/auth/facebook',class:sign_up_button_class do %>
+        <i class="fa fa-facebook-square" aria-hidden="true"></i> Login With Facebook
+        <% end %>
     <% end %>
 
     <%= content_tag :div, class:form_group_class+" text-center" do %>
