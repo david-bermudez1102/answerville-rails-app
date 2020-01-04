@@ -157,11 +157,15 @@ module ApplicationHelper
         content_tag :div, nil, class:"w-100"
     end
 
-    def render_img(user)
+    def render_img(user, size=nil, font="140px")
         if user.image
-           image_tag(user.image, class:"circular--square") 
+           image_tag(user.image, class:"circular--square", size:size) 
         else
-            content_tag :i, nil, class:"fa fa-user", "aria-hidden":true, style:"font-size: 140px;"
+            content_tag :i, nil, class:"fa fa-user-circle", "aria-hidden":true, style:"font-size: #{font};"
         end
+    end
+
+    def user_icon_link(user)
+        link_to render_img(user, "50x50", "50px"), user, class:"col-auto pr-3 m-0 card-link text-light"
     end
 end

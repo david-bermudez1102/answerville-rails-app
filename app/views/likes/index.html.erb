@@ -1,26 +1,19 @@
 <% title content_liked_title(@user) %>
-
 <%= content_tag :div, class:"col-md-7" do %>
-
   <%= render 'layouts/flash_message' %>
-
   <%= card do %>
-
     <%= card_header do %>
       <%= cell "row", "col text-center" do %>
         <%= card_title :h1, icon:"fa-heart", label:content_liked_header_title(@user) %>
       <% end %>
     <% end %>
-
     <%= card_body class: liked_card_body do %>
-        <% @dates_liked.each do |date,liked| %>
-          <h2 class="display-4"  style="font-size:24px;"><%=display_date(date)%></h1>
-          <%= ul class:liked_ul do %>
-            <%= render partial:'likes/liked', collection:liked.sort_by{|l| l.id }.reverse, locals:{user:@user} %>
-          <% end %>
+      <% @dates_liked.reverse_each do |date,liked| %>
+        <h2 class="display-4"  style="font-size:24px;"><%=display_date(date)%></h1>
+        <%= ul class:liked_ul do %>
+          <%= render partial:'likes/liked', collection:liked.sort_by{|l| l.id }.reverse, locals:{user:@user} %>
         <% end %>
+      <% end %>
     <% end %>
-
   <% end %>
-  
 <% end %>

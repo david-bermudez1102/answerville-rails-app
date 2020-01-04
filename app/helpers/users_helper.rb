@@ -90,10 +90,10 @@ module UsersHelper
 
     def content_liked_by(user, content)
         capture do
-            concat "#{reference(user)} liked the #{content.type.capitalize} " 
-            concat content_tag(:cite, content.content)
+            concat "#{reference(user).capitalize} liked the #{content.type.capitalize} " 
+            concat content_tag(:cite, content_tag(:small,content.content))
             concat " by "
-            concat content_tag(:cite, content.user.username)
+            concat content_tag(:cite, content_tag(:small,content.user.username))
         end
     end
 
@@ -102,10 +102,18 @@ module UsersHelper
     end
     
     def liked_li
-        "list-group-item display-4 liked-list text-center"
+        "list-group-item display-4 liked-list justify-content-center d-flex align-items-center"
     end
 
     def liked_card_body
         "card-body bg-transparent px-0"
+    end
+
+    def liked_container
+        "col-xl-9 p-0 d-flex align-items-center flex-wrap"
+    end
+
+    def liked_span
+        "col-auto p-0 text-nowrap"
     end
 end

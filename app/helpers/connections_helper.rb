@@ -43,7 +43,7 @@ module ConnectionsHelper
   end
 
   def connections_li
-    "list-group-item border-0 custom-bg-t my-2 col-sm-7 rounded-pill d-flex flex-wrap justify-content-center"
+    "list-group-item border-0 custom-bg-t my-2 col-xl-7 rounded-pill d-flex flex-wrap justify-content-center"
   end
 
   def no_connections_li
@@ -76,14 +76,6 @@ module ConnectionsHelper
             content_tag :h4, class:"text-light" do
                 "No Followers yet. Try asking more questions to get more followers and make @nswerville more fun!"
             end
-        end
-    end
-
-    def render_connections_img(user)
-        if user.image
-           image_tag(user.image, class:"circular--square", size:"50x50") 
-        else
-            content_tag :i, nil, class:"fa fa-user", "aria-hidden":true, style:"font-size: 50px;"
         end
     end
 end

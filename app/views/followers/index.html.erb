@@ -1,11 +1,11 @@
 <% title followers_title(@user) %>
-<%= content_tag :div, class:"col-lg-5" do %>
+<%= content_tag :div, class:"col-lg-6" do %>
   <%= render 'layouts/flash_message' %>
   <%= card do %>
     <%= card_header do %>
       <%= cell "row", "col text-center" do %>
         <%= content_tag :h2, class:card_title_class do %>
-          <%= icon "fa-users" %> <%= followers_card_title(@user) %>
+        <%= user_icon_link @user %>
         <% end %>
       <% end %>
     <% end %>

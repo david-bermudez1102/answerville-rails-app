@@ -5,7 +5,7 @@
     <%= card_header do %>
       <%= cell "row", "col text-center" do %>
         <%= content_tag :h2, class:card_title_class+" custom-card-title" do %>
-          <%= render_connections_img(@user) %> <%= following_card_title(@user) %>
+          <%= user_icon_link @user %> <%= following_card_title @user %>
         <% end %>
       <% end %>
     <% end %>

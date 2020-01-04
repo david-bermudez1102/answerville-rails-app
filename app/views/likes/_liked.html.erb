@@ -1,10 +1,6 @@
-<% case liked.class.name%>
-  <% when "LikeQuestion" %>
-    <%= li class:liked_li do%>
-      <%= link_to content_liked_by(user, liked.question), [liked.question.user, liked.question], class:"card-link text-light" %> at <%=display_time(liked.created_at.to_time)%>
-    <% end %>
-  <% when "LikeAnswer" %>
-    <%= li class:liked_li do %>
-      <%= link_to content_liked_by(user, liked.answer), [liked.answer.question.user, liked.answer.question], class:"card-link text-light" %> at <%=display_time(liked.created_at.to_time)%>
-    <% end %>
+<% case liked.class.name %>
+<% when "LikeQuestion" %>
+<%= render partial:'likes/like', locals:{user:user, content:liked.question, liked:liked, link:liked.question} %>
+<% when "LikeAnswer" %>
+<%= render partial:'likes/like', locals:{user:user, content:liked.answer, liked:liked, link:liked.answer.question} %>
 <% end %>

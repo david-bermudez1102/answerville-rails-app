@@ -25,7 +25,7 @@ module AnswersHelper
     end
 
     def answer_header_title
-        "card-title"
+        "card-title d-flex align-items-center"
     end
 
     def answer_card_body

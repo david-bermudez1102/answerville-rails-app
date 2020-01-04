@@ -1,6 +1,6 @@
 <%= content_tag :tr, class:connections_li do %>
   <%= content_tag :td, width:60 do %>
-    <%= link_to render_connections_img(connection), connection, class:"card-link text-light border-0" %>
+    <%= link_to render_img(connection, "50x50", "50px"), connection, class:"card-link text-light border-0" %>
   <% end %>
   <%= content_tag :td, width:110, class:"text-left"  do %>
     <%= content_tag :h4, connection.name, class:'card-title my-auto title-ellipsis', title:connection.name %>
