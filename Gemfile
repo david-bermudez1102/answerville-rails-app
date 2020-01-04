@@ -30,6 +30,8 @@ gem 'bootstrap',  '~>4.4.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
+
 gem 'dotenv-rails'
 
 group :development, :test do
