@@ -6,25 +6,17 @@
     <title><%= yield :title %> | @nswerville</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
   </head>
-
   <body class="bg-gradient">
-  <%= content_tag :div, class:body_container_class do %>
-   <%= content_tag :header do %>
+    <%= content_tag :div, class:body_container_class do %>
+      <%= content_tag :header do %>
         <%= render 'layouts/navigation' %>
       <% end %>
-
-    
-      
       <%= content_tag :main, class:main_class do %>
-          <%= yield%>
+        <%= yield%>
       <% end %>
-
       <%= content_tag :footer, class:footer_class do %>
         <%= render 'layouts/footer' %>
       <% end %>

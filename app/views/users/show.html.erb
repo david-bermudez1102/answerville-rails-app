@@ -7,7 +7,7 @@
         <%= content_tag :div, class:"row justify-content-center" do %>
           <%= content_tag :div, class:"col text-center py-3" do %>
             <%= content_tag :h1, @user.name, class:user_menu_title %>
-            <%= render_img(@user) %>
+            <%= render_img(@user) %><br>
             <%= render(partial:'followers/form', locals:{user:@user}) if @user != current_user %>
           
         <% end %>

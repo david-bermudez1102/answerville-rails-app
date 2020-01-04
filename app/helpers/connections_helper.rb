@@ -43,7 +43,7 @@ module ConnectionsHelper
   end
 
   def connections_li
-    "list-group-item custom-bg-t text-light border-0"
+    "list-group-item border-0 form-transparent"
   end
 
   def no_connections_li

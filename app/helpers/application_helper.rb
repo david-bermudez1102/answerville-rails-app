@@ -1,6 +1,6 @@
 module ApplicationHelper
     def reference(user)
-        user != current_user ? user.username : "you"
+        user != current_user ? "@#{user.username}" : "you"
     end
 
     def have?(user)
@@ -44,7 +44,7 @@ module ApplicationHelper
     end
 
     def navbar_li(path)
-        "nav-item align-items-center #{active_page(path)}"
+        "nav-item my-auto #{active_page(path)}"
     end
 
     def navbar_link
@@ -56,7 +56,7 @@ module ApplicationHelper
     end
 
     def navbar_content
-        "collapse navbar-collapse justify-content-end h-100 p-0 m-0"
+        "collapse navbar-collapse justify-content-end my-auto"
     end
 
     def active_page(path)
@@ -149,8 +149,8 @@ module ApplicationHelper
         "card-footer custom-bg-t text-center"
     end
 
-    def icon(class_name)
-        content_tag :i, nil, class:"fa "+class_name, 'aria-hidden' => true
+    def icon(class_name,title=nil)
+        content_tag :i, nil, class:"fa "+class_name, 'aria-hidden' => true, title:title
     end
 
     def w_100

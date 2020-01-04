@@ -1,26 +1,28 @@
-<li class="list-group-item border-0 form-transparent">
-  <blockquote>
-    <div class="row">
-      <div class="col text-light">
+<%= li class:"list-group-item border-0 form-transparent" do %>
+  <%= content_tag :blockquote do %>
+    <%= content_tag :div, class:"row" do %>
+      <%= content_tag :div, class:"col text-light" do %>
         <%= link_to [question.user,question], class:"card-link blockquote text-light", title:"Click to see question" do %>
           <i class="fa fa-question-circle" aria-hidden="true"></i>
           <%= question.content %>
-          <% end %>
-        </a>
-      </div>
-      <div class="col-1 text-light text-right">
-        <% if question.answered %>
-        <small><i class="fa fa-check-circle" aria-hidden="true" title="This question has been marked as answered."></i></small>
         <% end %>
-      </div>
-    </div>
-    <footer class="text-muted row text-light">
-      <div class="col text-light">
-        <small>Created by <cite><%= question.user.username %></cite></small>
-      </div>
-      <div class="col text-right text-light">
-        <small><cite><%= distance_of_time_in_words(question.created_at.to_i, Time.now) %> ago.</cite></small>
-      </div>
-    </footer>
-  </blockquote>
-</li>
+      </a>
+    <% end %>
+    <%= content_tag :div, class:"col-1 text-light text-right" do %>
+      <%= content_tag(:small, icon("fa-check-circle","This question has been marked as answered.")) if question.answered %>
+    <% end %>
+  <% end %>
+  <%= card_footer class:"text-muted row text-light" do %>
+    <%= content_tag :div, class:"col text-light" do %>
+      <%= content_tag :small do %>
+        Created by <cite><%= question.user.username %></cite>
+      <% end %>
+    <% end %>
+    <%= content_tag :div, class:"col text-right text-light" do %>
+      <%= content_tag :small do %>
+        <cite><%= distance_of_time_in_words(question.created_at.to_i, Time.now) %> ago.</cite>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<% end %>

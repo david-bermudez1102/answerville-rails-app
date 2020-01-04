@@ -1,5 +1,4 @@
 <% title followers_title(@user) %>
-
 <%= content_tag :div, class:"col-md-6" do %>
   <%= render 'layouts/flash_message' %>
   <%= card do %>
@@ -10,10 +9,9 @@
         <% end %>
       <% end %>
     <% end %>
-
     <%= card_body class:connections_card_body do %>
       <%= ul class:connections_ul do %>
-        <%= render(partial:'followers/follower', collection:@user.followers) || li(class:no_connections_li) do %>
+        <%= render(partial:'connections/connection', collection:@user.followers, as:'connection') || li(class:no_connections_li) do %>
           <%= no_followers @user %>
         <% end %>
       <% end %>
