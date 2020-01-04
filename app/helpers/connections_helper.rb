@@ -35,15 +35,15 @@ module ConnectionsHelper
   end
 
   def connections_card_body
-    "card-body align-items-center text-center custom-bg-t"
+    "card-body align-items-center text-center custom-bg-t p-0"
   end
 
   def connections_ul
-    "list-group text-light"
+    "list-group text-light d-flex justify-content-center p-0"
   end
 
   def connections_li
-    "list-group-item border-0 form-transparent"
+    "list-group-item border-0 custom-bg-t my-2 col-sm-7 rounded-pill d-flex flex-wrap justify-content-center"
   end
 
   def no_connections_li

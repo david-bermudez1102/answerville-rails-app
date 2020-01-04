@@ -96,6 +96,16 @@ html, body{
   font-size:32px;
 }
 
+.custom-card-title {
+  font-size:40px;
+}
+
 .circular--square {
   border-radius: 50%;
+}
+
+.title-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }

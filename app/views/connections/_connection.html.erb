@@ -1,12 +1,12 @@
-<%= li class:connections_li do %>
-  <%= cell "row justify-content-center", "col-xl-9 align-items-center d-flex justify-content-center flex-wrap" do %>
-    <%= render_connections_img(connection) %>
-    <%= content_tag :span, class:"pl-2 text-nowrap text-left" do %>
-      <%= content_tag :h4, connection.name, class:'card-title my-auto' %>
-      <%= link_to "@#{connection.username}", connection, class:"card-link text-light" %>
-    <% end %>
-    <%= content_tag :span, class:"pl-4 text-nowrap" do %>
-      <%= render(partial:'followers/form', locals:{user:connection}) if connection != current_user %>
-    <% end %>
+<%= content_tag :tr, class:connections_li do %>
+  <%= content_tag :td, width:60 do %>
+    <%= link_to render_connections_img(connection), connection, class:"card-link text-light border-0" %>
+  <% end %>
+  <%= content_tag :td, width:110, class:"text-left"  do %>
+    <%= content_tag :h4, connection.name, class:'card-title my-auto title-ellipsis', title:connection.name %>
+    <%= link_to "@#{connection.username}", connection, class:"card-link text-light title-ellipsis" %>
+  <% end %>
+  <%= content_tag :td, class:"text-nowrap", style:"width:150px;" do %>
+    <%= render(partial:'followers/form', locals:{user:connection}) if connection != current_user %>
   <% end %>
 <% end %>
