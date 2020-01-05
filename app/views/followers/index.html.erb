@@ -5,7 +5,7 @@
     <%= card_header do %>
       <%= cell "row", "col text-center" do %>
         <%= content_tag :h2, class:card_title_class do %>
-        <%= user_icon_link @user %>
+          <%= user_icon_link @user %> <%= followers_card_title @user %>
         <% end %>
       <% end %>
     <% end %>

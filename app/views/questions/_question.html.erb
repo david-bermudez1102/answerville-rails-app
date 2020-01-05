@@ -15,7 +15,7 @@
   <%= card_footer class:"text-muted row text-light" do %>
     <%= content_tag :div, class:"col text-light" do %>
       <%= content_tag :small do %>
-        Created by <cite><%= question.user.username %></cite>
+        Created by <cite><%= reference(question.user) %></cite>
       <% end %>
     <% end %>
     <%= content_tag :div, class:"col text-right text-light" do %>

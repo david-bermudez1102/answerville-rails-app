@@ -16,7 +16,7 @@
       <%= cell "row", "col d-flex justify-content-between" do %>
         <%= content_tag :small, "Categories: #{categories(@question)}", class:"card-subtitle" %>
         <%= content_tag :small do %>
-            <%= link_to "By #{@question.user.username}", @question.user, class:"card-subtitle text-light" %>
+            <%= link_to "By #{reference(@question.user)}", @question.user, class:"card-subtitle text-light" %>
         <% end %>
       <% end %>
 
