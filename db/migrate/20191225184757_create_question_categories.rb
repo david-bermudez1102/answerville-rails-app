@@ -1,4 +1,4 @@
-class CreateQuestionCategories < ActiveRecord::Migration[6.0]
+class CreateQuestionCategories < ActiveRecord::Migration[5.2]
   def change
     create_table :question_categories do |t|
       t.integer :question_id

@@ -1,4 +1,4 @@
-class CreateLikeQuestions < ActiveRecord::Migration[6.0]
+class CreateLikeQuestions < ActiveRecord::Migration[5.2]
   def change
     create_table :like_questions do |t|
       t.integer :question_id

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  scope format: false, constraints: { id: %r{[^/]+} } do
+
   resources :categories
   resources :questions, only:[:index]
 
@@ -31,6 +34,7 @@ Rails.application.routes.draw do
   delete 'logout', to:'sessions#destroy', as:'logout'
   post '/auth/facebook'
   get '/auth/facebook/callback' => 'sessions#create'
+end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
