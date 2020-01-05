@@ -4,11 +4,10 @@
 
     <%= form_group f, user, :password, "Enter your Password" %>
 
-    <%= content_tag :div, class:form_group_class+" text-light d-flex justify-content-between px-0 align-items-center flex-wrap" do %>
-        <%= f.submit "Login", class:sign_up_button_class %>
-        or
-        <%= link_to '/auth/facebook',class:sign_up_button_class, method: :post do %>
-        <i class="fa fa-facebook-square" aria-hidden="true"></i> Login With Facebook
+    <%= content_tag :div, class:form_group_class+form_group_class_with_buttons do %>
+        <%= f.submit "Login", class:follow_button %>
+        <%= link_to '/auth/facebook',class:"btn loginBtn loginBtn--facebook d-flex flex-wrap", method: :post do %>
+        <span class="facebook-login-title">Login With Facebook</span>
         <% end %>
     <% end %>
 

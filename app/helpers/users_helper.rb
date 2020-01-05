@@ -4,6 +4,10 @@ module UsersHelper
         "form-group list-group-item border-0 px-5 form-transparent"
     end
 
+    def form_group_class_with_buttons
+        " text-light d-flex justify-content-sm-between justify-content-center align-items-center flex-wrap"
+    end
+
     def label_class
         "form-label display-4 custom-form-label text-light"
     end
