@@ -32,7 +32,7 @@ module ApplicationHelper
     end
 
     def navbar_class
-        "row navbar navbar-expand-lg navbar-dark bg-transparent shadow scrolling-navbar align-items-center"
+        "row navbar navbar-expand-md navbar-dark bg-transparent shadow align-items-center"
     end
 
     def navbar_brand
