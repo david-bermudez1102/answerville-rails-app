@@ -7,7 +7,10 @@
     <%= content_tag :div, class:navbar_content, id:"navbarSupportedContent" do %>
       <%= ul class:navbar_ul do %>
         <%= content_tag(:li, render('users/search'), class:navbar_link) if is_logged_in? %>
-        <%= content_tag(:li, link_to("Home", root_path, class:navbar_link), class:navbar_li(root_path)) unless is_logged_in? %>
+        <% unless is_logged_in? %>
+          <%= content_tag(:li, link_to("Home", root_path, class:navbar_link), class:navbar_li(root_path)) if current_page?(login_path) %>
+          <%= content_tag(:li, render(partial: 'sessions/inline_form', locals:{user:User.new}), class:navbar_li(login_path)) unless current_page?(login_path) %>
+        <% end %>
         <%= content_tag(:li, link_to("All Questions", root_path, class:navbar_link), class:navbar_li(questions_path)) if is_logged_in? %>
         <%= content_tag(:li, link_to("New Question", [:new, current_user, :question], class:navbar_link), class:navbar_li([:new, current_user, :question])) if is_logged_in? %>
         <% if is_logged_in? %>

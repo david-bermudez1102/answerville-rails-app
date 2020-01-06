@@ -1,0 +1,11 @@
+<%= form_with model: user, url:login_path, class:form_inline_class do |f| %>
+  <%= content_tag :div, class:form_group_inline_class do %>
+    <%= f.text_field :email, placeholder:"Email", class:text_field_inline_class_rounded(user,:email)%>
+  <% end %>
+  <%= content_tag :div, class:form_group_inline_class do %>
+    <%= f.password_field :password, placeholder:"Password", class:text_field_inline_class_rounded(user,:password)%>
+  <% end %>
+  <%= content_tag :div, class:form_group_inline_class do %>
+    <%= f.submit "Login", class:login_button_inline %>
+  <% end %>
+<% end %>

@@ -5,8 +5,17 @@ module UsersHelper
     end
 
     def form_group_class_with_buttons
-        " text-light d-flex justify-content-sm-between justify-content-center align-items-center flex-wrap"
+        " text-light d-flex justify-content-center align-items-center flex-wrap"
     end
+
+    def form_inline_class
+        "form-inline"
+    end
+
+    def form_group_inline_class
+        "form-group border-0 px-1"
+    end
+
 
     def label_class
         "form-label display-4 custom-form-label text-light"
@@ -20,8 +29,20 @@ module UsersHelper
         c
     end
 
+     def text_field_inline_class_rounded(o,*args)
+        c = "form-control form-control-md rounded-pill"
+        if o.errors[*args].any?
+            c << " is-invalid"
+        end
+        c
+    end
+
     def sign_up_button_class
         "btn btn-lg send-btn"
+    end
+
+    def login_button_inline
+        "btn btn-md send-btn login-button-inline"
     end
 
     def form_group(f, model, *field, placeholder)
