@@ -1,6 +1,7 @@
 <% title "Login" %>
 
 <%= content_tag :div, class:"col-sm-auto", style:"width:500px" do %>
+    <%= render partial: 'layouts/errors', locals:{model:@user} %>
     <%= render 'layouts/flash_message' %>
 
     <%= card do %>
@@ -11,7 +12,7 @@
         <% end %>
 
         <%= card_body class:"login_card_body" do %>
-            <%= render partial: 'form', locals:{user:User.new} %>
+            <%= render partial: 'form', locals:{user:@user} %>
         <% end %>
     <% end %>
 <% end %>

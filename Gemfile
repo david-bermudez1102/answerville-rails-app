@@ -29,6 +29,8 @@ gem 'bootstrap',  '~>4.4.1'
 # gem 'image_processing', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
 

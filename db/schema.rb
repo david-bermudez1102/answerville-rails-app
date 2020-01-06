@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_232916) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.integer "uid"
+    t.string "uid"
   end
 
 end

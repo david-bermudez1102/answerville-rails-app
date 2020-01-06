@@ -53,4 +53,16 @@ module WelcomeHelper
     def h4_welcome_class
         "display-4"
     end
+
+    def facebook_button
+        "btn rounded-circle btn-md btn-outline-primary custom-login-button"
+    end
+
+    def google_button
+        "btn rounded-circle btn-md btn-outline-danger custom-login-button"
+    end
+
+    def github_button
+        "btn rounded-circle btn-md btn-outline-secondary custom-login-button"
+    end
 end
