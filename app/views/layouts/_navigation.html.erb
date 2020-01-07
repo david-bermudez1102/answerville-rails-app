@@ -1,0 +1,31 @@
+<%= content_tag :nav, class:navbar_class do %>
+  <div class="container-lg">
+    <%= link_to '@nswerville', root_path, class:navbar_brand %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <%= content_tag :div, class:navbar_content, id:"navbarSupportedContent" do %>
+      <%= ul class:navbar_ul do %>
+        <%= content_tag(:li, render('users/search'), class:navbar_link) if is_logged_in? %>
+        <% unless is_logged_in? %>
+          <%= content_tag(:li, link_to("Home", root_path, class:navbar_link), class:navbar_li(root_path)) if current_page?(login_path) %>
+          <%= content_tag(:li, render(partial: 'sessions/inline_form', locals:{user:User.new}), class:navbar_li(login_path)) unless current_page?(login_path) %>
+        <% end %>
+        <%= content_tag(:li, link_to("All Questions", root_path, class:navbar_link), class:navbar_li(questions_path)) if is_logged_in? %>
+        <%= content_tag(:li, link_to("New Question", [:new, current_user, :question], class:navbar_link), class:navbar_li([:new, current_user, :question])) if is_logged_in? %>
+        <% if is_logged_in? %>
+          <%= content_tag(:li, class:"nav-item dropdown my-auto") do %>
+            <%= link_to icon('fa-user')+" Account", '#', class:"#{navbar_link} dropdown-toggle", id:"navbarDropdown", "role":"button", data:{toggle:"dropdown"}, aria:{haspopup:true,expanded:false} %>
+            <%= content_tag :div, class:"dropdown-menu", aria:{labelledby:"navbarDropdown"} do %>
+              <%= link_to "My Profile", current_user, class:"dropdown-item #{active_page(current_user)}" %>
+              <%= navbar_dropdown_divider %>
+              <%= link_to "Edit Info", [:edit, current_user], class:"dropdown-item" %>
+              <%= navbar_dropdown_divider %>
+              <%= link_to 'Log Out', logout_url, class:"dropdown-item", data: { method: :delete } %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

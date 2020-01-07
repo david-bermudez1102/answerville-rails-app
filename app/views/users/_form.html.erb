@@ -1,0 +1,16 @@
+<%= form_for user do |f| %>
+    <%= form_group f, user, :name, "Your name" %>
+
+    <%= form_group f, user, :username, "Your Username" %>
+
+    <%= form_group f, user, :email, "Your email" %>
+
+    <%= form_group f, user, :password, "New Password" %>
+
+    <%= form_group f, user, :password_confirmation, "Confirm New Password" %>
+
+    <%= content_tag :div, class:form_group_class+" text-center" do %>
+        <%= f.submit class:sign_up_button_class %>
+    <% end %>
+
+<% end %>

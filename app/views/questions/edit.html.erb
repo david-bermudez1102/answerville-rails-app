@@ -1,0 +1,20 @@
+<% title "Edit Question" %>
+
+<%= content_tag :div, class:"col-md-5" do %>
+
+    <%= render 'layouts/flash_message' %>
+
+    <%= card do %>
+        <%= card_header do %>
+            <%= cell "row", "col text-center" do %>
+                <%= card_title :h1, icon:"fa-pencil", label:"Edit Question" %>
+            <% end %>
+        <% end %>
+
+        <%= card_body class:new_question_card_body do %>
+            <%= render partial: 'form', locals:{question:@question, categories:Category.all} %>
+        <% end %>
+
+    <% end %>
+
+<% end %>

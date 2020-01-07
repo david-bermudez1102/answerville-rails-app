@@ -1,0 +1,35 @@
+<% title @user.name %>
+<%= content_tag :div, class:"col-md-9" do %>
+  <%= render 'layouts/flash_message' %>
+  <%= content_tag :div, class:"container text-light" do %>
+    <%= content_tag :div, class:"row" do %>
+      <%= content_tag :div, class:"col custom-bg-t" do %>
+        <%= content_tag :div, class:"row justify-content-center" do %>
+          <%= content_tag :div, class:"col text-center py-3" do %>
+            <%= content_tag :h1, @user.name, class:user_menu_title %>
+            <%= render_img(@user, "150x150") %><br>
+            <%= render(partial:'followers/form', locals:{user:@user}) if @user != current_user %>
+          
+        <% end %>
+        <%= render partial:'menu', locals:{user:@user} %>
+      <% end %>
+    <% end %>
+    <%= content_tag :div, class:"col-9" do %>
+      <%= content_tag :div, class:user_questions_list_title do%>
+        <%= icon "fa-th-list" %>
+        Questions <%= @user != current_user ? "#{@user.name} has" : "you have"%> asked
+      <% end %>
+      <%= w_100 %>
+      <%= ul class:user_questions_ul do %>
+        <%= render(@questions) || li(class:no_user_questions_li) do %>
+          <% if @user != current_user %>
+            <%=@user.name%> hasn't asked any question yet. Try suggesting them to create a new question!
+          <% else %>
+            <%= link_to "You haven't asked any question yet. Click here to start asking questions!", new_user_question_path(username), class:"card-link text-light" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<% end %>

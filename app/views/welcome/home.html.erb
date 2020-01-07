@@ -1,0 +1,36 @@
+<% title "Welcome" %>
+<%= content_tag :div, class:"col-xl-auto" do %>
+  <%= render 'layouts/flash_message' %>
+  <%= card do %>
+    <%= card_header do %>
+      <%= cell "row", "col text-center" do %>
+        <%= content_tag :h1, 'Hey! Welcome to @nswerville!', class:"card-title display-3" %>
+      <% end %>
+    <% end %>
+    <%= card_body class:welcome_card_body do %>
+      <%= content_tag :div, class:welcome_message do %>
+        <%= content_tag :div,"A place where you can ask and anybody can answer", class:"card-subtitle display-4", style:"font-size:36px;" %>
+      <% end %>
+      <%= content_tag :div, class:welcome_options do %>
+        <%= content_tag :div, class:welcome_options_container do %>
+          <%= link_to 'Login', login_path, class:welcome_options_button %>
+          <%= link_to 'Sign Up', signup_path, class:welcome_options_button %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= card_footer class:welcome_card_footer do %>
+      <%= ul class:social_options do %>
+        <%= li class:social_options_container do %>
+          <%= content_tag :h4, 'USE SOCIAL MEDIA TO LOGIN', class:h4_welcome_class, style:"font-size:24px;" %>
+        <% end %>
+        <%= li class:social_options_container do %>
+          <%= cell "row justify-content-center", "col-6 d-flex justify-content-between" do %>
+            <%= link_to icon("fa-facebook"), '/auth/facebook',class:facebook_button, method: :post %>
+            <%= link_to icon("fa-google"), '/auth/google',class:google_button, method: :post %>
+            <%= link_to icon("fa-github"), '/auth/github',class:github_button, method: :post %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
