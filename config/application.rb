@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module AnswervilleRailsApp
   class Application < Rails::Application
+    Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true 
     # Initialize configuration defaults for originally generated Rails version.
 
     # Settings in config/environments/* take precedence over those specified here.
