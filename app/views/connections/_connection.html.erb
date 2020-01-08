@@ -1,0 +1,12 @@
+<%= content_tag :tr, class:connections_li do %>
+  <%= content_tag :td, width:60 do %>
+    <%= link_to render_img(connection, "50x50", "50px"), connection, class:"card-link text-light border-0" %>
+  <% end %>
+  <%= content_tag :td, width:120, class:"text-left"  do %>
+    <%= content_tag :h4, connection.name, class:'card-title my-auto title-ellipsis', title:connection.name %>
+    <%= link_to "@#{connection.username}", connection, class:"card-link text-light title-ellipsis" %>
+  <% end %>
+  <%= content_tag :td, class:"text-nowrap align-right", style:"width:150px;" do %>
+    <%= render(partial:'followers/form', locals:{user:connection}) if connection != current_user %>
+  <% end %>
+<% end %>

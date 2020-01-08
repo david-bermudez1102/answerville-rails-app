@@ -1,0 +1,10 @@
+<div class="<%= yield :main_col_class %>">
+  <%= yield :err %>
+    <div class="card bg-transparent border-0">
+        <div class="card-header text-light border-0 form-transparent">
+            <%= yield :card_header %>
+        </div>
+        <%= yield :card_body %>
+        <%= yield :card_footer %>
+    </div>
+</div>

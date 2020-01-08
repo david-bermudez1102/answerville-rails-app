@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col display-4 text-center text-secondary" style="font-size:32px;">
+        <i class="fa fa-check-circle" aria-hidden="true"></i> Question has been answered
+    </div>
+</div>
+<% if owner?(question) %>
+    <div class="row pt-4">
+        <div class="col my-auto text-center">
+            <%= link_to "Unmark as answered", user_question_path(username,question, question:{answered:false}), class:"btn btn-outline-danger", data: { method: :patch } %>
+        </div>
+    </div>
+<% end %>

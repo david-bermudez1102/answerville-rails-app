@@ -1,0 +1,19 @@
+<%= form_for question, url:user_questions_url do |f| %>
+  <%= content_tag :div, class:"form-group" do %>
+    <%= f.text_area :content, size: '50x3', class:text_field_class(question,:content),  placeholder:"Type your question here. Maximum 140 characters." %>
+  <% end %>
+  <% if !categories.empty? %>
+    <%= f.label :categories, "Pick a category:" %>
+    <%= content_tag :div, class:"form-group form-check form-check-inline" do %>
+      <%= f.collection_check_boxes :category_ids, categories, :id, :name %>
+    <% end %>
+  <% end %>
+  <%= content_tag :div, class:"form-group" do %>
+    <%= f.fields_for :categories, question.categories.build do |categories_fields| %>
+      <%= categories_fields.text_field :name, class:text_field_class(question,:name), placeholder:"Enter a new category"%>
+    <% end %>
+  <% end %>
+  <%= content_tag :div, class:"form-group" do %>
+    <%= f.submit class:sign_up_button_class %>
+  <% end %>
+<% end %>

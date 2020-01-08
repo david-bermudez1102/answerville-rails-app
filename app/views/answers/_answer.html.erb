@@ -1,0 +1,17 @@
+<%= li class:question_li do %>
+  <%= cell "row", "col d-flex justify-content-between" do %>
+    <%= content_tag :h5, class:answer_header_title do %>
+      <%= link_to render_img(answer.user, "50x50", "50px"), answer.user, class:"card-link text-secondary" %>
+      <span class="pl-2"><%= wrote(answer.user) %></span>
+    <% end %>
+    <%= content_tag :small do %>
+      Created <%=distance_of_time_in_words(answer.created_at.to_i, Time.now)%> ago. Updated <%=distance_of_time_in_words(answer.updated_at.to_i, Time.now)%> ago.
+    <% end %>
+  <% end %>
+  <%= cell "row bg-white", "col card-text py-2" do %>
+    <%=answer.content%>
+  <% end %>
+  <%= cell "row", "col" do %>
+    <%= render partial:'layouts/options', locals:{content:answer, options_class:"btn p-0 bg-transparent text-primary"} %>
+  <% end %>
+<% end %>

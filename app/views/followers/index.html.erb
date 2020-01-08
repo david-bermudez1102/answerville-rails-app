@@ -1,0 +1,22 @@
+<% title followers_title(@user) %>
+<%= content_tag :div, class:"col-lg-6" do %>
+  <%= render 'layouts/flash_message' %>
+  <%= card do %>
+    <%= card_header do %>
+      <%= cell "row", "col text-center" do %>
+        <%= content_tag :h2, class:card_title_class do %>
+          <%= user_icon_link @user %> <%= followers_card_title @user %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= card_body class:connections_card_body do %>
+      <%= content_tag :table, class:connections_ul do %>
+        <%= content_tag :tbody, align:"center" do %>
+          <%= render(partial:'connections/connection', collection:@user.followers, as:'connection') || li(class:no_connections_li) do %>
+            <%= no_followers @user %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

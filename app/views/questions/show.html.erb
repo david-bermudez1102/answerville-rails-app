@@ -1,0 +1,42 @@
+<% title @question.content %>
+
+<%= content_tag :div, class:"col-md-6" do %>
+  <%= render 'layouts/flash_message' %>
+
+  <%= card do %>
+  <%= card_header do %>
+      <%= cell "row p-0 justify-content-end", owner?(@question) ? "col-sm-5" : "col-xs-1" do %>
+        <%= render partial:'layouts/options', locals:{content:@question, options_class:"btn bg-transparent p-0 text-light"} %>
+      <% end %>
+      <%= cell "row", "col text-center" do %>
+        <%= content_tag :h1, class:card_title_class do %>
+          <%= icon "fa-question-circle" %><%= @question.content %>
+        <% end %>
+      <% end %>
+      <%= cell "row", "col d-flex justify-content-between" do %>
+        <%= content_tag :small, "Categories: #{categories(@question)}", class:"card-subtitle" %>
+        <%= content_tag :small do %>
+            <%= link_to "By #{reference(@question.user)}", @question.user, class:"card-subtitle text-light" %>
+        <% end %>
+      <% end %>
+
+  <% end %>
+
+  <%= card_body class:question_card_body do %>
+    <% if !@question.answered %>
+      <%= render partial:'answers/form', locals:{answer:@answer} %>
+    <% else %>
+      <%= render partial:'answered', locals:{question:@question} %>
+    <% end %>
+  <% end %>
+
+    <%= card_footer class:card_footer_class do %>
+      <%= content_tag :h3, 'Answers', class:h3_class %>
+        <%= ul class:question_ul do %>
+          <%= li class:question_li do %>
+            <%= render(@question.answers.order(id: :desc)) || content_tag(:h4, "No answers yet.", class:no_answers) %>
+          <% end %>
+        <% end %>
+    <% end %>
+  <% end %>
+<% end %>

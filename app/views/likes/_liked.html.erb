@@ -1,0 +1,6 @@
+<% case liked.class.name %>
+<% when "LikeQuestion" %>
+<%= render partial:'likes/like', locals:{user:user, content:liked.question, liked:liked, link:liked.question} %>
+<% when "LikeAnswer" %>
+<%= render partial:'likes/like', locals:{user:user, content:liked.answer, liked:liked, link:liked.answer.question} %>
+<% end %>

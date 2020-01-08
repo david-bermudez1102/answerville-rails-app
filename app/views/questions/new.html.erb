@@ -1,0 +1,21 @@
+<% title "New Question" %>
+
+<%= content_tag :div, class:"col-md-5" do %>
+
+    <%= render partial: 'layouts/errors', locals:{model:@question} %>
+
+    <%= card do %>
+
+        <%= card_header do %>
+            <%= cell "row", "col text-center" do %>
+                <%= card_title :h1, icon:"fa-plus", label:"New Question" %>
+            <% end %>
+        <% end %>
+
+        <%= card_body class:new_question_card_body do %>
+            <%= render partial: 'form', locals:{question:@question, categories:Category.all} %>
+        <% end %>
+
+    <% end %>
+
+<% end %>
