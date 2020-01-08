@@ -59,12 +59,15 @@ module ApplicationHelper
         "collapse navbar-collapse justify-content-end my-auto"
     end
 
+<<<<<<< HEAD
     def navbar_toggler
         content_tag :button, class:"navbar-toggler", type:"button", data:{toggle:"collapse",target:"#navbarSupportedContent"}, aria:{controls:"navbarSupportedContent", expanded:false, label:"Toggle navigation"} do
             content_tag :span, nil, class:"navbar-toggler-icon"
         end
     end
 
+=======
+>>>>>>> 335ac87c9e147d5c5761303fb985b1043b2cbb55
     def active_page(path)
         "active" if current_page?(path)
     end

@@ -1,7 +1,13 @@
 <%= content_tag :nav, class:navbar_class do %>
   <div class="container-lg">
     <%= link_to '@nswerville', root_path, class:navbar_brand %>
+<<<<<<< HEAD
     <%= navbar_toggler %>
+=======
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+>>>>>>> 335ac87c9e147d5c5761303fb985b1043b2cbb55
     <%= content_tag :div, class:navbar_content, id:"navbarSupportedContent" do %>
       <%= ul class:navbar_ul do %>
         <%= content_tag(:li, render('users/search'), class:navbar_link) if is_logged_in? %>

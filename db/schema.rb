@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_01_08_160304) do
+=======
+ActiveRecord::Schema.define(version: 2020_01_03_232916) do
+>>>>>>> 335ac87c9e147d5c5761303fb985b1043b2cbb55
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -71,7 +75,10 @@ ActiveRecord::Schema.define(version: 2020_01_08_160304) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.string "uid"
+<<<<<<< HEAD
     t.string "provider"
+=======
+>>>>>>> 335ac87c9e147d5c5761303fb985b1043b2cbb55
   end
 
 end
