@@ -1,15 +1,16 @@
 <%= li class:"list-group-item border-0 form-transparent" do %>
   <%= content_tag :blockquote do %>
     <%= content_tag :div, class:"row" do %>
-      <%= content_tag :div, class:"col text-light" do %>
+      <%= content_tag :div, class:"col text-light d-flex justify-content-between" do %>
         <%= link_to [question.user,question], class:"card-link lead text-light", title:"Click to see question" do %>
           <%= icon("fa-question-circle") %>
           <%= question.content %>
+          <%= content_tag :cite, "(#{question.answers.count} Answers)", class:"small" %>
         <% end %>
-        <%= content_tag :cite, "(#{question.answers.count} Answers)", class:"small" %>
-      <% end %>
-      <%= content_tag :div, class:"col-1 text-light text-right" do %>
-        <%= content_tag(:small, icon("fa-check-circle","This question has been marked as answered.")) if question.answered %>
+        <%= content_tag :span do %>
+          <%= content_tag :small, "Categories: #{categories(question)}", class:"card-subtitle" %>
+          <%= content_tag(:small, icon("fa-check-circle","This question has been marked as answered.")) if question.answered %>
+        <% end %>
       <% end %>
     <% end %>
     <%= card_footer class:"text-muted row text-light" do %>
