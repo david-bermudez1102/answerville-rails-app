@@ -1,6 +1,6 @@
 module ApplicationHelper
     def reference(user)
-        user != current_user ? "@#{user.username}" : "you"
+        user != current_user ? link_to("@#{user.username}", user, class:"m-0 card-link text-light") : link_to("you", user, class:"m-0 card-link text-light")
     end
 
     def have?(user)
@@ -59,15 +59,22 @@ module ApplicationHelper
         "collapse navbar-collapse justify-content-end my-auto"
     end
 
-<<<<<<< HEAD
     def navbar_toggler
         content_tag :button, class:"navbar-toggler", type:"button", data:{toggle:"collapse",target:"#navbarSupportedContent"}, aria:{controls:"navbarSupportedContent", expanded:false, label:"Toggle navigation"} do
             content_tag :span, nil, class:"navbar-toggler-icon"
         end
     end
 
-=======
->>>>>>> 335ac87c9e147d5c5761303fb985b1043b2cbb55
+    def navbar_dropdown_menu
+        content_tag :div, class:"dropdown-menu", aria:{labelledby:"navbarDropdown"} do
+            yield
+        end
+    end
+
+    def navbar_account_dropdown
+        link_to icon('fa-user')+" Account", '#', class:"#{navbar_link} dropdown-toggle", id:"navbarDropdown", "role":"button", data:{toggle:"dropdown"}, aria:{haspopup:true,expanded:false}
+    end
+
     def active_page(path)
         "active" if current_page?(path)
     end

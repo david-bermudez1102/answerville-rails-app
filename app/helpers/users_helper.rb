@@ -42,7 +42,7 @@ module UsersHelper
     end
 
     def login_button_inline
-        "btn btn-md send-btn login-button-inline"
+        "btn btn-mds send-btn login-button-inline"
     end
 
     def form_group(f, model, *field, placeholder)

@@ -18,7 +18,6 @@ class User < ApplicationRecord
     has_many :following_connections, foreign_key: :user_id, class_name: "Connection"
     has_many :following, through: :following_connections, source: :following
 
-<<<<<<< HEAD
     def self.find_or_create_by_omniauth(auth)
         where(uid: auth['uid']).first_or_create do |u|
             u.name = auth['info']['name'] ? auth['info']['name'] : auth['info']['nickname']
@@ -30,8 +29,6 @@ class User < ApplicationRecord
         end
     end
 
-=======
->>>>>>> 335ac87c9e147d5c5761303fb985b1043b2cbb55
     def liked
         self.like_questions + self.like_answers
     end

@@ -1,12 +1,9 @@
 module ConnectionsHelper
   def following_card_title(user)
-    if user==current_user
-      "People you are following"
-    else
-      capture do
-        concat "People @"
-        concat link_to(user.username, user, class:'card-link text-light') + " is following"
-      end
+    capture do
+        concat "People "
+        concat reference(user)
+        user==current_user ? concat(" are following") : concat(" is following")
     end
   end
 
