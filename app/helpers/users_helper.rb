@@ -1,11 +1,11 @@
 module UsersHelper
 
     def form_group_class
-        "form-group list-group-item border-0 px-5 form-transparent"
+        "form-group list-group-item border-0 px-5 bg-transparent m-0"
     end
 
     def form_group_class_with_buttons
-        " text-light d-flex justify-content-center align-items-center flex-wrap"
+        " d-flex justify-content-center align-items-center flex-wrap"
     end
 
     def form_inline_class
@@ -18,7 +18,7 @@ module UsersHelper
 
 
     def label_class
-        "form-label display-4 custom-form-label text-light"
+        "form-label display-4 custom-form-label"
     end
 
     def text_field_class_rounded(o,*args)
@@ -30,19 +30,23 @@ module UsersHelper
     end
 
      def text_field_inline_class_rounded(o,*args)
-        c = "form-control form-control-md rounded-pill"
+        c = "form-control form-control-md shadow border-0"
         if o.errors[*args].any?
             c << " is-invalid"
         end
         c
     end
 
+    def login_button_class
+        "btn btn-lg btn-primary btn-block shadow rounded-pill"
+    end
+
     def sign_up_button_class
-        "btn btn-lg send-btn"
+        "btn btn-lg btn-primary btn-block shadow rounded-pill"
     end
 
     def login_button_inline
-        "btn btn-mds send-btn login-button-inline"
+        "btn btn-md btn-light shadow rounded-pill"
     end
 
     def form_group(f, model, *field, placeholder)
@@ -57,11 +61,11 @@ module UsersHelper
     end
 
     def login_card_body
-        "card-body bg-transparent text-light px-0 p-0"
+        "card-body bg-transparent text-secondary px-0 p-0"
     end
 
     def signup_card_body
-        "card-body bg-transparent text-light px-0 p-0"
+        "card-body bg-transparent text-secondary px-0 p-0"
     end
 
     def user_questions_ul

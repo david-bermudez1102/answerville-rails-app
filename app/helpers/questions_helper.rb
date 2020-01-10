@@ -19,7 +19,7 @@ module QuestionsHelper
     end
 
     def new_question_card_body
-        "card-body bg-light"
+        "card-body bg-transparent"
     end
 
     def questions_card_body
@@ -27,15 +27,15 @@ module QuestionsHelper
     end
 
     def questions_ul
-        "list-group p-0"
+        "list-group p-0 border-0"
     end
 
     def questions_li
-        "list-group-item border-0 custom-bg-t p-0"
+        "list-group-item border-0 bg-transparent p-0"
     end
 
     def no_questions_li
-        "list-group-item border-0 custom-bg-t text-center"
+        "list-group-item border-0 transparent text-center"
     end
 
     def question_ul
@@ -43,6 +43,6 @@ module QuestionsHelper
     end
 
     def question_li
-        "list-group-item bg-light"
+        "list-group-item bg-light border-0 mb-1 shadow"
     end
 end

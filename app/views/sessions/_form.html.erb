@@ -2,10 +2,10 @@
   <%= form_group f, user, :email, "Enter your email" %>
   <%= form_group f, user, :password, "Enter your Password" %>
   <%= content_tag :div, class:form_group_class+form_group_class_with_buttons do %>
-    <%= f.submit "Login", class:follow_button+" btn-block" %>
+    <%= f.submit "Login", class:login_button_class %>
   <% end %>
   <%= content_tag :div, class:form_group_class+" text-center" do %>
-    <small><a href="/signup" class="card-link text-light">Don't have an account? Sign up here.</a></small>
+    <small><a href="/signup" class="card-link text-secondary">Don't have an account? Sign up here.</a></small>
   <% end %>
 <% end %>
 <%= content_tag :div, class:form_group_class+form_group_class_with_buttons do %>

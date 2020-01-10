@@ -1,15 +1,15 @@
 <% title "Welcome" %>
-<%= content_tag :div, class:"col-xl-auto" do %>
+<%= content_tag :div, class:"col-lg-5 col-xl-6" do %>
   <%= render 'layouts/flash_message' %>
   <%= card do %>
     <%= card_header do %>
-      <%= cell "row", "col text-center" do %>
-        <%= content_tag :h1, 'Hey! Welcome to @nswerville!', class:"card-title display-3" %>
+      <%= cell "row p-0", "col text-center p-0" do %>
+        <%= content_tag :h1, 'WELCOME TO ANSWERVILLE!', class:"card-title display-4", style:"font-size:48px;" %>
       <% end %>
     <% end %>
     <%= card_body class:welcome_card_body do %>
       <%= content_tag :div, class:welcome_message do %>
-        <%= content_tag :div,"A place where you can ask and anybody can answer", class:"card-subtitle display-4", style:"font-size:36px;" %>
+        <%= content_tag :div,"A place where you can find anything and anybody can answer", class:"card-subtitle display-4", style:"font-size:32px;" %>
       <% end %>
       <%= content_tag :div, class:welcome_options do %>
         <%= content_tag :div, class:welcome_options_container do %>

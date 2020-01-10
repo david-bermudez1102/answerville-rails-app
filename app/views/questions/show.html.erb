@@ -4,9 +4,9 @@
   <%= card do %>
     <%= card_header do %>
       <%= cell "row p-0 justify-content-end", owner?(@question) ? "col-sm-5" : "col-xs-1" do %>
-        <%= render partial:'layouts/options', locals:{content:@question, options_class:"btn bg-transparent p-0 text-light"} %>
+        <%= render partial:'layouts/options', locals:{content:@question, options_class:"btn bg-transparent p-0 text-primary"} %>
       <% end %>
-      <%= cell "row", "col text-center" do %>
+      <%= cell "row", "col text-center text-primary" do %>
         <%= content_tag :h1, class:card_title_class do %>
           <%= icon "fa-question-circle" %><%= @question.content %>
         <% end %>
@@ -28,9 +28,7 @@
     <%= card_footer class:card_footer_class do %>
       <%= content_tag :h3, 'Answers', class:h3_class %>
       <%= ul class:question_ul do %>
-        <%= li class:question_li do %>
           <%= render(@question.answers.order(id: :desc)) || content_tag(:h4, "No answers yet.", class:no_answers) %>
-        <% end %>
       <% end %>
     <% end %>
   <% end %>

@@ -13,11 +13,11 @@ module AnswersHelper
     end
 
     def answers_ul
-       "list-group bg-light" 
+       "list-group bg-light border-0" 
     end
 
     def answers_li
-       "list-group-item bg-light" 
+       "list-group-item bg-light border-0" 
     end
 
     def answered_questions_li
@@ -29,11 +29,11 @@ module AnswersHelper
     end
 
     def answer_card_body
-        "card-body bg-light"
+        "card-body bg-light border-0"
     end
 
     def answers_card_body
-        "card-body bg-transparent p-0"
+        "card-body bg-transparent p-0 border-0"
     end
 
     def answers_header_title(user)
