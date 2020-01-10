@@ -29,9 +29,7 @@ class QuestionsController < ApplicationController
     end
 
     def update
-        if @question.update(question_params)
-            redirect_to user_question_path(username,@question)
-        end
+        redirect_to user_question_path(username,@question) if @question.update(question_params)
     end
 
     def destroy

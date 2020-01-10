@@ -112,7 +112,7 @@ module ApplicationHelper
     end
 
     def card_title_class
-        "card-title display-4"
+        "card-title display-4 text-light"
     end
 
     def err

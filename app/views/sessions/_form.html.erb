@@ -8,8 +8,10 @@
     <small><a href="/signup" class="card-link text-light">Don't have an account? Sign up here.</a></small>
   <% end %>
 <% end %>
-<%= content_tag :div, class:form_group_class+form_group_class_with_buttons do %>
-  <%= link_to '/auth/facebook',class:"btn btn-lg loginBtn loginBtn--facebook d-flex flex-wrap", method: :post do %>
-    <span class="facebook-login-title">Login With Facebook</span>
+<%= content_tag :div, class:social_options_container do %>
+  <%= cell "row justify-content-center", "col-6 d-flex justify-content-between" do %>
+    <%= link_to icon("fa-facebook"), '/auth/facebook',class:facebook_button, method: :post %>
+    <%= link_to icon("fa-google"), '/auth/google',class:google_button, method: :post %>
+    <%= link_to icon("fa-github"), '/auth/github',class:github_button, method: :post %>
   <% end %>
 <% end %>
