@@ -4,7 +4,7 @@
     <% end %>
 
     <%= content_tag :div, class:"form-group d-flex w-100" do %>
-        <%= f.submit class:sign_up_button_class %>
+        <%= f.submit class:"btn btn-lg btn-primary" %>
         <% if owner?(answer.question) %>
             <%= link_to "Mark as answered", user_question_path(username,answer.question, question:{answered:true}), class:"btn btn-outline-success ml-auto my-auto", data: { method: :patch } %>
         <% end %>

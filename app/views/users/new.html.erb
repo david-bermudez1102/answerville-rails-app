@@ -11,7 +11,7 @@
     <%= card_body class:signup_card_body do %>
       <%= render partial: 'form', locals:{user:@user} %>
       <%= content_tag :div, class:form_group_class+" text-center" do %>
-        <small><%= link_to 'Already have an account? Login here.', login_path, class:"card-link text-light" %></small>
+        <small><%= link_to 'Already have an account? Login here.', login_path, class:"card-link text-secondary" %></small>
       <% end %>
     <% end %>
   <% end %>

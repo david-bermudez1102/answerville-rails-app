@@ -11,15 +11,15 @@ module WelcomeHelper
     end
 
     def welcome_card_body
-        "card-body bg-transparent p-0 text-light  form-transparent"
+        "card-body bg-transparent p-0 text-secondary m-0"
     end
 
     def welcome_message
-        "list-group-item border-0 px-5 text-center custom-bg-t"
+        "list-group-item border-0 text-center bg-transparent"
     end
 
     def social_message
-        "list-group-item border-0 px-5 d-flex align-items-center justify-content-center text-primary mt-0"
+        "list-group-item border-0 d-flex align-items-center justify-content-center mt-0"
     end
 
     def welcome_card_title
@@ -27,23 +27,23 @@ module WelcomeHelper
     end
 
     def welcome_options
-        "list-group-item py-4 text-center custom-bg-t border-0"
+        "list-group-item py-4 text-center bg-transparent border-0"
     end
 
     def welcome_options_container
-        "col-lg-5 align-items-center d-flex justify-content-center m-auto flex-wrap"
+        "col-lg align-items-center d-flex justify-content-center m-auto flex-wrap"
     end
 
     def social_options
-        "list-group text-light d-flex justify-content-center"
+        "list-group d-flex justify-content-center"
     end
 
     def social_options_container
-        "list-group-item custom-bg-t col text-center border-0"
+        "list-group-item bg-transparent col text-center border-0"
     end
 
     def welcome_options_button
-        "btn btn-lg send-btn custom-login-button btn-block "
+        "btn btn-lg btn-primary btn-block rounded-pill shadow"
     end
 
     def welcome_card_footer
@@ -55,14 +55,14 @@ module WelcomeHelper
     end
 
     def facebook_button
-        "btn rounded-circle btn-md btn-outline-primary custom-login-button"
+        "btn rounded-circle btn-md btn-primary custom-login-button shadow"
     end
 
     def google_button
-        "btn rounded-circle btn-md btn-outline-danger custom-login-button"
+        "btn rounded-circle btn-md btn-danger shadow"
     end
 
     def github_button
-        "btn rounded-circle btn-md btn-outline-secondary custom-login-button"
+        "btn rounded-circle btn-md btn-secondary shadow"
     end
 end
