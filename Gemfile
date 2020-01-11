@@ -10,7 +10,7 @@ gem 'rails', '~> 5.1'
 gem 'bootsnap'
 
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -35,10 +35,10 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
 gem 'dotenv-rails'
 
-gem 'capistrano', '~> 3.11'
-gem 'capistrano-rails', '~> 1.4'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-rbenv'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,6 +51,7 @@ group :development, :test do
   gem "rack_session_access"
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
+  gem 'puma', '~> 4.1'
 end
 
 group :development do
