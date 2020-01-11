@@ -1,5 +1,5 @@
 # Change these
-before 'deploy:inital', 'rvm:install_rvm'
+
 
 server '167.71.252.146', roles: [:web, :app, :db], primary: true
 
@@ -8,7 +8,7 @@ set :application,     'answerville'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-set :default_shell, "/bin/bash -l"
+set :default_shell, :bash
 
 # Deploy to the user's home directory
 
