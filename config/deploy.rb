@@ -1,4 +1,6 @@
 # Change these
+before 'deploy:inital', 'rvm:install_rvm'
+
 server '167.71.252.146', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:david-bermudez1102/answerville-rails-app.git'
