@@ -14,7 +14,7 @@
         <%= render partial:'menu', locals:{user:@user} %>
       <% end %>
     <% end %>
-    <%= content_tag :div, class:"col-9" do %>
+    <%= content_tag :div, class:"col-xl-9 p-0 px-lg-2" do %>
       <%= content_tag :div, class:user_questions_list_title do%>
         <%= icon "fa-th-list" %>
         Questions <%= @user != current_user ? "#{@user.name} has" : "you have"%> asked

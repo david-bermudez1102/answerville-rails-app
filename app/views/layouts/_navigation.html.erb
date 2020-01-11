@@ -1,10 +1,6 @@
-<%= content_tag :nav, class:navbar_class do %>
+<%= content_tag :nav, id:"main-navbar", class:navbar_class, href:"" do %>
   <div class="container-lg">
-<<<<<<< HEAD
-    <%= link_to image_tag("1x/logo.png", class:"img-fluid", width:"50%"), root_path, class:navbar_brand %>
-=======
-    <%= link_to 'ANSWERVILLE', root_path, class:navbar_brand %>
->>>>>>> ed36c2892d7b2a4bf26bc1fd8a7e7e8080f522df
+    <%= link_to image_tag("1x/logo.png", class:"img-fluid shadowed", width:"50%"), root_path, class:navbar_brand %>
     <%= navbar_toggler %>
     <%= content_tag :div, class:navbar_content, id:"navbarSupportedContent" do %>
       <%= ul class:navbar_ul do %>

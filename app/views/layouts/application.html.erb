@@ -11,10 +11,8 @@
   </head>
   <body class="bg-gradient">
     <%= content_tag :div, class:body_container_class do %>
-      <%= content_tag :header do %>
         <%= render 'layouts/navigation' %>
-      <% end %>
-      <%= content_tag :main, class:main_class do %>
+      <%= content_tag :main, class:main_class, data:{target:"#main-navbar",spy:"scroll",offset:"0"} do %>
         <%= yield%>
       <% end %>
       <%= content_tag :footer, class:footer_class do %>

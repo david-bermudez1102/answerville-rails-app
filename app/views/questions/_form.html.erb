@@ -1,4 +1,4 @@
-<%= form_for question, url:user_questions_url do |f| %>
+<%= form_for [current_user,question] do |f| %>
   <%= content_tag :div, class:"form-group" do %>
     <%= f.text_area :content, size: '50x3', class:text_field_class(question,:content),  placeholder:"Type your question here. Maximum 140 characters." %>
   <% end %>

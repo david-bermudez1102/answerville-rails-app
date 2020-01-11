@@ -1,6 +1,6 @@
 module ApplicationHelper
     def reference(user)
-        user != current_user ? link_to("@#{user.username}", user, class:"m-0 card-link text-secondary") : link_to("you", user, class:"m-0 card-link text-secondary")
+        user != current_user ? link_to("@#{user.username}", user, class:"m-0 card-link custom-text-primary") : link_to("you", user, class:"m-0 card-link custom-text-primary")
     end
 
     def have?(user)
@@ -32,11 +32,11 @@ module ApplicationHelper
     end
 
     def navbar_class
-        "row navbar navbar-expand-md navbar-dark bg-transparent shadow-sm align-items-center"
+        "row navbar navbar-expand-lg navbar-dark align-items-center sticky-top solid"
     end
 
     def navbar_brand
-        "navbar-brand display-1 logo h-100 py-0"
+        "navbar-brand display-1 logo h-100 py-0  m-0"
     end
 
     def navbar_ul
@@ -80,7 +80,7 @@ module ApplicationHelper
     end
 
     def search_button
-        "btn btn-outline-light text-light"            
+        "btn btn-outline-light text-secondary"            
     end
     
     def custom_class(content)
@@ -112,7 +112,7 @@ module ApplicationHelper
     end
 
     def card_title_class
-        "card-title display-4 text-light"
+        "card-title display-4 custom-text-primary"
     end
 
     def err
@@ -154,15 +154,15 @@ module ApplicationHelper
     end
 
     def card_class
-        "card bg-white border-0 text-dark shadow-lg"
+        "card bg-white border-0 text-primary shadow-lg rounded"
     end
 
     def card_header_class
-        "card-header border-0 bg-transparent text-center"
+        "card-header border-0 bg-transparent text-center custom-text-primary"
     end
 
     def card_footer_class
-        "card-footer bg-transparent text-center text-primary"
+        "card-footer bg-transparent text-center custom-text-primary"
     end
 
     def icon(class_name,title=nil)

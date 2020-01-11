@@ -11,7 +11,7 @@ module WelcomeHelper
     end
 
     def welcome_card_body
-        "card-body bg-transparent p-0 text-secondary m-0"
+        "card-body bg-transparent p-0 custom-text-primary m-0"
     end
 
     def welcome_message
@@ -31,7 +31,7 @@ module WelcomeHelper
     end
 
     def welcome_options_container
-        "col-lg align-items-center d-flex justify-content-center m-auto flex-wrap"
+        "col-sm-7 align-items-center d-flex justify-content-center m-auto flex-wrap"
     end
 
     def social_options
