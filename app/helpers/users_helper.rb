@@ -1,5 +1,9 @@
 module UsersHelper
 
+    def reference_liked_by(user)
+        user != current_user ? user.username : "you"
+    end
+
     def form_group_class
         "form-group list-group-item border-0 px-5 bg-transparent m-0"
     end
@@ -107,19 +111,21 @@ module UsersHelper
 
     def content_liked_header_title(user)
         if user.liked.empty?
-            "#{reference(user)} #{have?(user)}n't liked anything yet!"
+            reference_liked_by(user) + " #{have?(user)}n't liked anything yet!"
         else
-            "Content #{reference(user)} #{have?(user)} liked"
+            "Content "+reference_liked_by(user)+" #{have?(user)} liked"
         end
     end
 
     def content_liked_title(user)
-        "Content #{reference(user)} #{have?(user)} liked"
+        "Content "+reference_liked_by(user)+" #{have?(user)} liked"
     end
 
     def content_liked_by(user, content)
         capture do
-            concat "#{reference(user).capitalize} liked the #{content.type.capitalize} " 
+            concat reference_liked_by(user)
+            concat " "
+            concat " liked the #{content.type.capitalize} " 
             concat content_tag(:cite, content_tag(:small,content.content))
             concat " by "
             concat content_tag(:cite, content_tag(:small,content.user.username))
@@ -127,15 +133,15 @@ module UsersHelper
     end
 
     def liked_ul
-        "list-group bg-transparent text-light p-0"
+        "list-group bg-transparent custom-text-primary"
     end
     
     def liked_li
-        "list-group-item display-4 liked-list justify-content-center d-flex align-items-center"
+        "list-group-item display-4 liked-list justify-content-center d-flex align-items-center border-0 bg-light"
     end
 
     def liked_card_body
-        "card-body bg-transparent px-0"
+        "card-body bg-transparent custom-text-primary"
     end
 
     def liked_container
