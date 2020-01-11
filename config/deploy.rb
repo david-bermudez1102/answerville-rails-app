@@ -1,5 +1,5 @@
 # Change these
-server 'your_server_ip', port: your_port_num, roles: [:web, :app, :db], primary: true
+server '167.71.252.146', port: 3000, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:david-bermudez1102/answerville-rails-app.git'
 set :application,     'answerville'
