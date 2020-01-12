@@ -9,7 +9,7 @@
   <% end %>
 <% end %>
 <%= content_tag :div, class:social_options_container do %>
-  <%= cell "row justify-content-center", "col-6 d-flex justify-content-between" do %>
+  <%= cell "row justify-content-center", "col-sm-6 d-flex justify-content-between" do %>
     <%= link_to icon("fa-facebook"), '/auth/facebook',class:facebook_button, method: :post %>
     <%= link_to icon("fa-google"), '/auth/google',class:google_button, method: :post %>
     <%= link_to icon("fa-github"), '/auth/github',class:github_button, method: :post %>
