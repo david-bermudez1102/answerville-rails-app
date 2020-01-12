@@ -4,12 +4,12 @@
   <%= card do %>
     <%= card_header do %>
       <%= cell "row p-0", "col text-center p-0" do %>
-        <%= content_tag :h1, 'WELCOME TO ANSWERVILLE!', class:"card-title display-4", style:"font-size:48px;" %>
+        <%= content_tag :h1, 'Welcome to Answerville', class:"card-title display-4", style:"font-size:48px;" %>
       <% end %>
     <% end %>
     <%= card_body class:welcome_card_body do %>
       <%= content_tag :div, class:welcome_message do %>
-        <%= content_tag :div,"A place where you can find anything and anybody can answer", class:"card-subtitle display-4", style:"font-size:32px;" %>
+        <%= content_tag :div,"A place where you can ask anything and anybody can answer", class:"card-subtitle display-4", style:"font-size:32px;" %>
       <% end %>
       <%= content_tag :div, class:welcome_options do %>
         <%= content_tag :div, class:welcome_options_container do %>

@@ -31,7 +31,7 @@ module WelcomeHelper
     end
 
     def welcome_options_container
-        "col-sm-7 align-items-center d-flex justify-content-center m-auto flex-wrap"
+        "col-sm-5 align-items-center d-flex justify-content-center m-auto flex-wrap"
     end
 
     def social_options
@@ -43,7 +43,7 @@ module WelcomeHelper
     end
 
     def welcome_options_button
-        "btn btn-lg btn-primary btn-block rounded-pill shadow"
+        "btn btn-md btn-primary btn-block rounded-pill shadow"
     end
 
     def welcome_card_footer
