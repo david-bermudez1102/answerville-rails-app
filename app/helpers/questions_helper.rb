@@ -43,6 +43,6 @@ module QuestionsHelper
     end
 
     def question_li
-        "list-group-item border-0 bg-light m-1 shadow"
+        "list-group-item border-0 bg-light m-2 shadow"
     end
 end
