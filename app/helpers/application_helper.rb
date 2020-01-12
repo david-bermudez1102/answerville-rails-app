@@ -1,6 +1,6 @@
 module ApplicationHelper
     def reference(user)
-        user != current_user ? link_to("@#{user.username}", user, class:"m-0 card-link text-info") : link_to("you", user, class:"m-0 card-link text-info")
+        user != current_user ? link_to("@#{user.username}", user, class:"m-0 card-link text-light") : link_to("you", user, class:"m-0 card-link text-light")
     end
 
     def have?(user)
@@ -112,7 +112,7 @@ module ApplicationHelper
     end
 
     def card_title_class
-        "card-title display-4 text-secondary font-title"
+        "card-title display-4 text-light"
     end
 
     def err
@@ -154,15 +154,15 @@ module ApplicationHelper
     end
 
     def card_class
-        "card bg-white border-0 text-info shadow-lg rounded"
+        "card custom-bg-t border-0 text-light shadow rounded"
     end
 
     def card_header_class
-        "card-header border-0 bg-transparent text-center text-info"
+        "card-header border-0 bg-transparent text-center text-light"
     end
 
     def card_footer_class
-        "card-footer bg-transparent text-center text-info"
+        "card-footer bg-transparent text-center text-light px-0"
     end
 
     def icon(class_name,title=nil)

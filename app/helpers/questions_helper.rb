@@ -14,6 +14,10 @@ module QuestionsHelper
         categories.join(", ")
     end
 
+    def categories_class
+        "form-control form-control-lg form-group form-check form-check-inline flex-wrap bg-white w-100 h-100 shadow text-secondary p-2"
+    end
+
     def question_card_body
         "card-body bg-light"
     end

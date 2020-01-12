@@ -26,7 +26,15 @@ module UsersHelper
     end
 
     def text_field_class_rounded(o,*args)
-        c = "form-control form-control-lg rounded-pill"
+        c = "form-control border-0 shadow form-control-lg rounded-pill"
+        if o.errors[*args].any?
+            c << " is-invalid"
+        end
+        c
+    end
+
+    def text_field_class(o,*args)
+        c = "form-control border-0 shadow form-control-lg"
         if o.errors[*args].any?
             c << " is-invalid"
         end
@@ -42,11 +50,11 @@ module UsersHelper
     end
 
     def login_button_class
-        "btn btn-lg btn-primary btn-block shadow rounded-pill"
+        "btn btn-lg btn-light btn-block shadow rounded-pill"
     end
 
     def sign_up_button_class
-        "btn btn-lg btn-primary btn-block shadow rounded-pill"
+        "btn btn-lg btn-light btn-block shadow rounded-pill"
     end
 
     def login_button_inline
@@ -65,11 +73,11 @@ module UsersHelper
     end
 
     def login_card_body
-        "card-body bg-transparent text-secondary px-0 p-0"
+        "card-body bg-transparent text-light px-0 p-0"
     end
 
     def signup_card_body
-        "card-body bg-transparent text-secondary px-0 p-0"
+        "card-body bg-transparent text-light px-0 p-0"
     end
 
     def user_questions_ul
@@ -81,7 +89,7 @@ module UsersHelper
     end
 
     def user_questions_list_title
-        "col py-3 display-4 text-center custom-bg-t custom_user_questions_list_title"
+        "col py-3 display-4 text-center custom-bg-t custom_user_questions_list_title shadow-lg rounded"
     end
 
     def user_menu_item(icon, content, *url)
@@ -94,11 +102,11 @@ module UsersHelper
     
 
     def user_menu_item_class
-        "col py-2 display-4 custom-bg-t custom_user_menu_list_title"
+        "col py-2 display-4 bg-light text-info custom_user_menu_list_title"
     end
 
     def user_menu_item_link
-        "card-link text-light"
+        "card-link text-info"
     end
 
     def user_menu_title

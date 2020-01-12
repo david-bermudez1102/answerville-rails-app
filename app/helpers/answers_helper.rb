@@ -1,6 +1,6 @@
 module AnswersHelper
     def no_answers
-        "text-secondary"
+        "text-light"
     end
 
     

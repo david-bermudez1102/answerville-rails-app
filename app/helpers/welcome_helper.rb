@@ -11,7 +11,7 @@ module WelcomeHelper
     end
 
     def welcome_card_body
-        "card-body bg-transparent p-0 text-secondary m-0"
+        "card-body bg-transparent p-0 text-light m-0"
     end
 
     def welcome_message
@@ -43,7 +43,7 @@ module WelcomeHelper
     end
 
     def welcome_options_button
-        "btn btn-md btn-primary btn-block rounded-pill shadow"
+        "btn btn-md btn-light btn-block rounded-pill shadow"
     end
 
     def welcome_card_footer

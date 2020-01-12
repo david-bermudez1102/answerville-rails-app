@@ -4,9 +4,9 @@
   <%= card do %>
     <%= card_header do %>
       <%= cell "row p-0 justify-content-end", owner?(@question) ? "col-sm-5" : "col-xs-1" do %>
-        <%= render partial:'layouts/options', locals:{content:@question, options_class:"btn bg-transparent p-0 text-primary"} %>
+        <%= render partial:'layouts/options', locals:{content:@question, options_class:"btn bg-transparent p-0 text-light"} %>
       <% end %>
-      <%= cell "row", "col text-center text-primary" do %>
+      <%= cell "row", "col text-center" do %>
         <%= content_tag :h1, class:card_title_class do %>
           <%= icon "fa-question-circle" %>&nbsp;<%= @question.content %>
         <% end %>
