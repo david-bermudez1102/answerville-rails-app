@@ -35,7 +35,7 @@ module QuestionsHelper
     end
 
     def no_questions_li
-        "list-group-item border-0 transparent text-center"
+        "list-group-item border-0 bg-transparent text-center text-secondary"
     end
 
     def question_ul

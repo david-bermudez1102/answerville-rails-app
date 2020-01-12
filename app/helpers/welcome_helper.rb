@@ -11,7 +11,7 @@ module WelcomeHelper
     end
 
     def welcome_card_body
-        "card-body bg-transparent p-0 custom-text-primary m-0"
+        "card-body bg-transparent p-0 text-secondary m-0"
     end
 
     def welcome_message

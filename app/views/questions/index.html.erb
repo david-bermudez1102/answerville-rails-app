@@ -12,7 +12,7 @@
     <%= card_body class: questions_card_body do %>
       <%= ul class:questions_ul do %>
         <%= render(@questions) || li(class:no_questions_li) do %>
-          <%= link_to 'Nobody has asked a question yet! Be the first one', new_user_question_path(username), class:"card-link text-light" %>
+          <%= link_to 'Nobody has asked a question yet! Be the first one', new_user_question_path(username), class:"card-link text-secondary" %>
         <% end %>
       <% end %>
     <% end %>

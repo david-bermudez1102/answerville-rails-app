@@ -112,7 +112,7 @@ module ApplicationHelper
     end
 
     def card_title_class
-        "card-title display-4 custom-text-primary"
+        "card-title display-4 text-secondary"
     end
 
     def err
@@ -154,11 +154,11 @@ module ApplicationHelper
     end
 
     def card_class
-        "card bg-white border-0 text-primary shadow-lg rounded"
+        "card bg-white border-0 text-secondary shadow-lg rounded"
     end
 
     def card_header_class
-        "card-header border-0 bg-transparent text-center custom-text-primary"
+        "card-header border-0 bg-transparent text-center text-secondary"
     end
 
     def card_footer_class
