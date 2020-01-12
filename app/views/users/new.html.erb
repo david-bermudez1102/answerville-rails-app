@@ -1,5 +1,5 @@
 <% title "Sign up" %>
-<%= content_tag :div, class:"col-xs-auto", style:"min-width:200px; width:500px" do %>
+<%= content_tag :div, class:"col-sm-auto", style:"width:500px" do %>
   <%= render partial: 'layouts/errors', locals:{model:@user} %>
   <%= render 'layouts/flash_message' %>
   <%= card do %>
@@ -11,7 +11,7 @@
     <%= card_body class:signup_card_body do %>
       <%= render partial: 'form', locals:{user:@user} %>
       <%= content_tag :div, class:form_group_class+" text-center" do %>
-        <small><%= link_to 'Already have an account? Login here.', login_path, class:"card-link text-light" %></small>
+        <%= link_to "Have an account already? Login here.", login_path, class:card_link_class+"small" %>
       <% end %>
     <% end %>
   <% end %>

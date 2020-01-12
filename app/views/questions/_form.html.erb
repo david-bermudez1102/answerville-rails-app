@@ -6,14 +6,15 @@
     <%= f.label :categories, "Pick a category:" %>
     <%= content_tag :div, class:categories_class do %>
       <%= f.collection_check_boxes :category_ids, categories, :id, :name do |c| %>
-      <%= c.check_box class:"form-check-input m-0 ml-1" %>
-      <%= c.label class:"form-check-label"%>
+        <%= c.check_box class:"form-check-input m-0 ml-2" %>
+        <%= c.label class:"form-check-label ml-1"%>
       <% end %>
     <% end %>
   <% end %>
   <%= content_tag :div, class:"form-group" do %>
     <%= f.fields_for :categories, 2.times{question.categories.build} do |categories_fields| %>
-      <br><%= categories_fields.text_field :name, class:text_field_class(question,:name), placeholder:"Enter a new category"%>
+      <br>
+      <%= categories_fields.text_field :name, class:text_field_class(question,:name), placeholder:"Enter a new category"%>
     <% end %>
   <% end %>
   <%= content_tag :div, class:"form-group" do %>

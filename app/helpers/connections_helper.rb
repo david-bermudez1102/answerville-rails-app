@@ -19,7 +19,7 @@ module ConnectionsHelper
     if user==current_user
       "Your Followers"
     else
-      link_to("@#{user.username}", user, class:'card-link custom-text-primary')+" Followers"
+      link_to("@#{user.username}", user, class:'card-link custom-color')+" Followers"
     end
   end
 
@@ -32,11 +32,11 @@ module ConnectionsHelper
   end
 
   def connections_card_body
-    "card-body align-items-center text-center bg-transparent"
+    "card-body align-items-center text-center bg-transparent text-secondary"
   end
 
   def connections_ul
-    "list-group custom-text-primary d-flex justify-content-center"
+    "list-group custom-color d-flex justify-content-center"
   end
 
   def connections_li
@@ -44,7 +44,7 @@ module ConnectionsHelper
   end
 
   def no_connections_li
-    "list-group-item bg-light custom-text-primary border-0"
+    "list-group-item bg-light custom-color border-0"
   end
 
   def display_connected_user(user)

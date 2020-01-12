@@ -13,15 +13,15 @@ module AnswersHelper
     end
 
     def answers_ul
-       "list-group bg-light border-0" 
+       "list-group bg-transparent border-0" 
     end
 
     def answers_li
-       "list-group-item bg-light border-0" 
+       "list-group-item bg-light border-0 text-center" 
     end
 
     def answered_questions_li
-        "list-group-item custom-bg-t"
+        "list-group-item bg-transparent"
     end
 
     def answer_header_title
@@ -33,7 +33,7 @@ module AnswersHelper
     end
 
     def answers_card_body
-        "card-body bg-transparent p-0 border-0"
+        "card-body bg-transparent p-0 border-0 text-secondary"
     end
 
     def answers_header_title(user)
@@ -41,16 +41,16 @@ module AnswersHelper
     end
 
     def wrote(user)
-        user != current_user ? "#{user.username} wrote" : "You wrote"
+        user != current_user ? "@#{user.username} wrote" : "You wrote"
     end
 
     def no_questions_answered(user)
-        ul class:questions_ul do
-            li class:questions_li do
+        ul class:answers_ul do
+            li class:answers_li do
                 if user != current_user 
                     "#{@user.name} hasn't answered any questions yet."
                 else
-                    link_to "You haven't answered any question yet. Click here to start answering questions", root_url             
+                    link_to "You haven't answered any question yet. Click here to start answering questions", root_url, class:card_link_class             
                 end
             end
         end

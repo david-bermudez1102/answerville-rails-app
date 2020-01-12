@@ -1,7 +1,7 @@
 <%= li class:liked_li do%>
   <%= content_tag :div, class:liked_container do %>
     <%= user_icon_link content.user %>
-    <%= link_to content_liked_by(user, content), [link.user, link], class:"col p-0 m-0 card-link custom-text-primary" %>
+    <%= link_to content_liked_by(user, content), [link.user, link], class:card_link_class+"col p-0 m-0" %>
     <%= content_tag :small, "At #{display_time(liked.created_at.to_time)}", class:liked_span, style:"font-size:11px; font-style:italic" %>
   <% end %>
 <% end %>

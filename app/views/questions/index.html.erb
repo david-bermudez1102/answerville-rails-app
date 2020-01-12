@@ -1,22 +1,16 @@
 <% title "All Questions" %>
-
 <%= content_tag :div, class:"col-sm-auto", style:"width:1000px;" do %>
-
   <%= render 'layouts/flash_message' %>
-
   <%= card do %>
     <%= card_header do %>
-        <%= content_tag :h1, "Welcome #{current_user.name}", class:card_title_class %>
+      <%= content_tag :h1, "Welcome #{current_user.name}", class:card_title_class %>
     <% end %>
-
     <%= card_body class: questions_card_body do %>
       <%= ul class:questions_ul do %>
         <%= render(@questions) || li(class:no_questions_li) do %>
-          <%= link_to 'Nobody has asked a question yet! Be the first one', new_user_question_path(username), class:"card-link text-secondary" %>
+          <%= link_to 'Nobody has asked a question yet! Be the first one', new_user_question_path(username), class:card_link_class %>
         <% end %>
       <% end %>
     <% end %>
-
   <% end %>
-
 <% end %>

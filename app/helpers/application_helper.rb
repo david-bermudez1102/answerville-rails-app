@@ -1,6 +1,6 @@
 module ApplicationHelper
     def reference(user)
-        user != current_user ? link_to("@#{user.username}", user, class:"m-0 card-link text-light") : link_to("you", user, class:"m-0 card-link text-light")
+        user != current_user ? link_to("@#{user.username}", user, class:"m-0 card-link custom-color") : link_to("you", user, class:"m-0 card-link custom-color")
     end
 
     def have?(user)
@@ -32,7 +32,7 @@ module ApplicationHelper
     end
 
     def navbar_class
-        "row navbar navbar-expand-lg navbar-dark align-items-center sticky-top solid"
+        "row navbar navbar-expand-lg navbar-dark align-items-center sticky-top solid "
     end
 
     def navbar_brand
@@ -56,7 +56,7 @@ module ApplicationHelper
     end
 
     def navbar_content
-        "collapse navbar-collapse justify-content-end my-auto"
+        "collapse navbar-collapse justify-content-end my-auto text-right"
     end
 
     def navbar_toggler
@@ -112,7 +112,11 @@ module ApplicationHelper
     end
 
     def card_title_class
-        "card-title display-4 text-light"
+        "card-title display-4 text-light font-title"
+    end
+
+    def card_link_class
+        "card-link custom-color "
     end
 
     def err
@@ -154,7 +158,7 @@ module ApplicationHelper
     end
 
     def card_class
-        "card custom-bg-t border-0 text-light shadow rounded"
+        "card custom-bg-t border-0 text-light shadow"
     end
 
     def card_header_class
@@ -175,13 +179,13 @@ module ApplicationHelper
 
     def render_img(user, size=nil, font="140px")
         if user.image
-           image_tag(user.image, class:"circular--square", size:size) 
+           image_tag(user.image, class:"circular--square shadow", size:size) 
         else
-            content_tag :i, nil, class:"fa fa-user-circle", "aria-hidden":true, style:"font-size: #{font};"
+            content_tag :i, nil, class:"fa fa-user-circle text-shadow", "aria-hidden":true, style:"font-size: #{font};"
         end
     end
 
     def user_icon_link(user)
-        link_to render_img(user, "50x50", "50px"), user, class:"col-auto pr-3 m-0 card-link text-light"
+        link_to render_img(user, "50x50", "50px"), user, class:card_link_class+"col-auto pr-3 m-0"
     end
 end

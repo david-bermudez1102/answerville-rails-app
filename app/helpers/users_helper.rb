@@ -141,7 +141,7 @@ module UsersHelper
     end
 
     def liked_ul
-        "list-group bg-transparent custom-text-primary"
+        "list-group bg-transparent"
     end
     
     def liked_li
@@ -149,7 +149,7 @@ module UsersHelper
     end
 
     def liked_card_body
-        "card-body bg-transparent custom-text-primary"
+        "card-body bg-transparent text-secondary"
     end
 
     def liked_container

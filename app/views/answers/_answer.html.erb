@@ -1,7 +1,7 @@
 <%= li class:question_li do %>
   <%= cell "row", "col d-flex justify-content-between" do %>
     <%= content_tag :h5, class:answer_header_title do %>
-      <%= link_to render_img(answer.user, "50x50", "50px"), answer.user, class:"card-link text-light" %>
+      <%= link_to render_img(answer.user, "50x50", "50px"), answer.user, class:card_link_class %>
       <span class="pl-2"><%= wrote(answer.user) %></span>
     <% end %>
     <%= content_tag :small, class:"text-right p-0" do %>

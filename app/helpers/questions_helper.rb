@@ -15,7 +15,7 @@ module QuestionsHelper
     end
 
     def categories_class
-        "form-control form-control-lg form-group form-check form-check-inline flex-wrap bg-white w-100 h-100 shadow text-secondary p-2"
+        "form-control form-control-lg form-group form-check form-check-inline flex-wrap text-nowrap bg-white w-100 h-100 shadow text-secondary p-2 border-0"
     end
 
     def question_card_body
@@ -47,6 +47,6 @@ module QuestionsHelper
     end
 
     def question_li
-        "list-group-item border-0 bg-light m-2 shadow"
+        "list-group-item border-0 bg-light mx-2 my-1 shadow rounded"
     end
 end

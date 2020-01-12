@@ -59,8 +59,8 @@ background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, F
   border-radius: 1rem !important;
 }
 
-.custom-text-primary{
-  color:#009FFF;
+.custom-color{
+  color: inherit;
 }
 
 .shadowed {
@@ -73,7 +73,6 @@ background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, F
 
 .custom_user_questions_list_title{
   font-size:42px;
-  border-bottom:4px solid rgba(0, 0, 0, 0.1);
 }
 
 .custom_user_menu_list_title {
@@ -103,7 +102,6 @@ background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, F
 }
 
 .font-title{
-  font-weight:500;
   font-size:42px,
 }
 

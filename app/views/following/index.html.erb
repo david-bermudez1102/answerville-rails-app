@@ -12,7 +12,9 @@
     <%= card_body class:connections_card_body do %>
       <%= content_tag :table, class:connections_ul do %>
         <%= content_tag :tbody, align:"center" do %>
-          <%= render(partial:'connections/connection', collection:@user.following, as:'connection') || not_following_anyone(@user) %>
+          <%= render(partial:'connections/connection', collection:@user.following, as:'connection') || li(class:no_connections_li) do %>
+            <%= not_following_anyone @user %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
