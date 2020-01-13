@@ -1,0 +1,19 @@
+<% title "Search results for #{params[:query]}" %>
+<%= content_tag :div, class:"col-xl-7" do %>
+  <%= render 'layouts/flash_message' %>
+  <%= card do %>
+    <%= card_header do %>
+      <%= cell do %>
+        <%= results_title(@users,@questions,params[:query]) %>
+      <% end %>
+    <% end %>
+    <% unless @users.empty? && @questions.empty? %>
+      <%= card_body class: search_card_body do %>
+        <%= ul class:search_ul do %>
+          <%= result @users %>
+          <%= result @questions %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

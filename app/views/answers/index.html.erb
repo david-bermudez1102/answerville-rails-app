@@ -9,15 +9,15 @@
     <% end %>
     <%= card_body class:answers_card_body do %>
       <%= no_questions_answered(@user) if @user.answers.empty? %>
-      <% @questions.keys.each do |question| %>
+      <% @questions.each do |question,answers| %>
         <%= ul class:questions_ul do %>
           <%= li class:answered_questions_li do %>
             <%= content_tag :blockquote do %>
               <%= ul class:"list-group" do %>
-                <%= render question.answers.order(id: :desc) %>
+                <%= render answers.sort_by{|l| l.id }.reverse %>
               <% end %>
               <%= cell "text-muted row text-light", "col text-light" do %>
-                Answers to <cite><%= link_to question.content, [question.user, question], class:card_link_class %></cite> Created by <cite><%=question.user.username%></cite>
+                To the question <cite><%= link_to question.content, [question.user, question], class:card_link_class %></cite> Created by <cite><%=question.user.username%></cite>
               <% end %>
             <% end %>
           <% end %>

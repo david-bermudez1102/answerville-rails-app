@@ -66,4 +66,8 @@ class User < ApplicationRecord
             end
         end
     end
+
+    def type
+        "user"
+    end
 end

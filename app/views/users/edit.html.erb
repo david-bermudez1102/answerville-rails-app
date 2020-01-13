@@ -12,7 +12,7 @@
         <% end %>
 
         <%= card_body class:signup_card_body do %>
-            <%= render partial: 'form', locals:{user:current_user} %>
+            <%= render partial: 'form', locals:{user:current_user, edit:true} %>
         <% end %>
     <% end %>
 <% end %>

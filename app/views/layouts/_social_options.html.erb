@@ -1,0 +1,10 @@
+<%= content_tag :div, class:social_options_container do %>
+  <%= cell "row justify-content-center", "col py-4" do %>
+    OR LOGIN/SIGN UP WITH YOUR SOCIAL MEDIA
+  <% end %>
+  <%= cell "row justify-content-center", "col-sm-6 d-flex justify-content-between mx-4" do %>
+    <%= link_to icon("fa-facebook"), '/auth/facebook',class:facebook_button, method: :post %>
+    <%= link_to icon("fa-google"), '/auth/google',class:google_button, method: :post %>
+    <%= link_to icon("fa-github"), '/auth/github',class:github_button, method: :post %>
+  <% end %>
+<% end %>

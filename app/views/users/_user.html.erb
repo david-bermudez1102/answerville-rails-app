@@ -1,0 +1,6 @@
+<%= li class:user_li do %>
+  <%= link_to user, class:card_link_class+" text-secondary" do %>
+    <%= render_img(user, "50x50","50px") %>
+    <%=user.name%> - @<%=user.username%>
+  <% end %>
+<% end %>

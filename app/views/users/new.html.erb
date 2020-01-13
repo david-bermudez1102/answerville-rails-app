@@ -9,7 +9,7 @@
       <% end %>
     <% end %>
     <%= card_body class:signup_card_body do %>
-      <%= render partial: 'form', locals:{user:@user} %>
+      <%= render partial: 'form', locals:{user:@user, edit:false} %>
       <%= content_tag :div, class:form_group_class+" text-center" do %>
         <%= link_to "Have an account already? Login here.", login_path, class:card_link_class+"small" %>
       <% end %>

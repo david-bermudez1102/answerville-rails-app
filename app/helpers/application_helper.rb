@@ -99,7 +99,7 @@ module ApplicationHelper
         end
     end
 
-    def cell(row_class,col_class)
+    def cell(row_class="row",col_class="col text-center")
         content_tag :div, class:row_class do
             content_tag :div, class:col_class do  
                 yield
@@ -155,6 +155,10 @@ module ApplicationHelper
 
     def h3_class
         "display-4"
+    end
+
+    def h3_title_class
+        "card-title display-3"
     end
 
     def card_class

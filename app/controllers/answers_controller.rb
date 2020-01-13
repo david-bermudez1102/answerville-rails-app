@@ -19,7 +19,7 @@ class AnswersController < ApplicationController
 
     def index
         @user = User.find_by(username:params[:user_id])
-        @questions = @user.answers.order(id: :desc).group(:question).count
+        @questions = @user.answers.order(id: :desc).group_by(&:question)
     end
 
     def destroy

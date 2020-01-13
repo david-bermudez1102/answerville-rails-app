@@ -159,4 +159,8 @@ module UsersHelper
     def liked_span
         "col-auto p-0 text-nowrap"
     end
+
+    def user_li
+        "list-group-item border-0 bg-light mx-2 my-1 shadow rounded"
+    end
 end
