@@ -3,7 +3,7 @@
   <%= render 'layouts/flash_message' %>
   <%= card do %>
     <%= card_header do %>
-      <%= cell "row", "col text-center" do %>
+      <%= cell do %>
         <%= content_tag :h2, class:card_title_class+" custom-card-title" do %>
           <%= user_icon_link @user %> <%= following_card_title @user %>
         <% end %>

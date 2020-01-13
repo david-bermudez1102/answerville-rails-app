@@ -2,7 +2,7 @@
   <%= content_tag :div, class:'input-group' do %>
     <%= f.text_field :query, class:'form-control border-0 rounded-pill mr-1 pr-5', placeholder:"Search Content", aria:{label:"Search Content", describedby:"search-addon2"}%>
     <%= content_tag :div, class:'input-group-append' do %>
-      <%= f.button class:search_button+" rounded-pill border-0 ml-n5", id:"search-addon2" do %>
+      <%= f.button :search, class:search_button+" rounded-pill border-0 ml-n5", id:"search-addon2" do %>
         <%= icon "fa-search"%>
       <% end %>
     <% end %>

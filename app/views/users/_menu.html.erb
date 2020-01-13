@@ -1,19 +1,10 @@
 <%= w_100 %>
-
 <%= user_menu_item "fa-th-list", "Questions (#{user.questions.count})", [user, :questions] %>
-
 <%= w_100 %>
-
 <%= user_menu_item "fa-comments", "Answers (#{user.answers.count})", [user, :answers] %>
-
 <%= w_100 %>
-
 <%= user_menu_item "fa-users", "Followers (#{user.followers.count})", [user, :followers] %>
-
 <%= w_100 %>
-
 <%= user_menu_item "fa-user-plus", "Following (#{user.following.count})", [user, :following_index] %>
-    
 <%= w_100 %>
-
 <%= user_menu_item "fa-heart", "Liked (#{user.liked.count})", [user, :likes] %>
