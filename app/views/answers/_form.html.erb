@@ -1,14 +1,12 @@
 <%= form_for [current_user, answer] do |f| %>
-    <%= content_tag :div, class:"form-group" do %>
-        <%= f.text_area :content, size: '80x5', class:text_field_class(answer,:content),  placeholder:"Enter your answer here." %>
+  <%= content_tag :div, class:"form-group" do %>
+    <%= f.text_area :content, size: '80x5', class:text_field_class(answer,:content),  placeholder:"Enter your answer here." %>
+  <% end %>
+  <%= content_tag :div, class:"form-group d-flex w-100" do %>
+    <%= f.submit class:"btn btn-lg btn-primary shadow" %>
+    <% if owner?(answer.question) %>
+      <%= link_to "Mark as answered", [current_user, answer.question, question:{answered:true}], class:"btn btn-md btn-success ml-auto my-auto shadow", data: { method: :patch } %>
     <% end %>
-
-    <%= content_tag :div, class:"form-group d-flex w-100" do %>
-        <%= f.submit class:"btn btn-lg btn-primary shadow" %>
-        <% if owner?(answer.question) %>
-            <%= link_to "Mark as answered", user_question_path(username,answer.question, question:{answered:true}), class:"btn btn-md btn-success ml-auto my-auto shadow", data: { method: :patch } %>
-        <% end %>
-    <% end %>
-
-    <%= f.hidden_field :question_id %>
+  <% end %>
+  <%= f.hidden_field :question_id %>
 <% end %>

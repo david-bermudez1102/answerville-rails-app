@@ -28,7 +28,7 @@
     <%= card_footer class:card_footer_class do %>
       <%= content_tag :h3, 'Answers', class:h3_class %>
       <%= ul class:question_ul do %>
-          <%= render(@question.answers.order(id: :desc)) || content_tag(:h4, "No answers yet.", class:no_answers) %>
+        <%= render(@question.answers.order(id: :desc)) || content_tag(:h4, "No answers yet.", class:no_answers) %>
       <% end %>
     <% end %>
   <% end %>

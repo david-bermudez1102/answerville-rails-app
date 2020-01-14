@@ -1,53 +1,57 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
-    before_action :login_required
-    before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :login_required
+  before_action :set_question, only: %i[edit update destroy]
 
-    def index
-        @questions = Question.all.order(id: :desc)
+  def index
+    @questions = Question.all.order(id: :desc)
+  end
+
+  def show
+    @question = Question.find_by(id: params[:id])
+    @like = @question.likes.new
+    @answer = Answer.new(question: @question)
+  end
+
+  def new
+    @question = current_user.questions.build
+  end
+
+  def create
+    @question = current_user.questions.build(question_params)
+    if @question.save
+      redirect_to user_question_path(username, @question)
+    else
+      render :new
     end
+  end
 
-    def show
-        @question = Question.find_by(id:params[:id])
-        @like = @question.likes.new
-        @answer = Answer.new(question:@question)
+  def edit; end
+
+  def update
+    if @question.update(question_params)
+      redirect_to user_question_path(username, @question)
+      end
+  end
+
+  def destroy
+    if @question.destroy
+      flash[:success] = 'The content was deleted successfully.'
+      redirect_to user_questions_path(username)
+    else
+      flash[:error] = "The content couldn't be deleted."
+      redirect_to user_question_path(@question.user, @question)
     end
+  end
 
-    def new
-        @question = current_user.questions.build
-    end
+  private
 
-    def create
-        @question = current_user.questions.build(question_params)
-        if @question.save
-            redirect_to user_question_path(username,@question)
-        else
-            render :new
-        end
-    end
+  def question_params
+    params.require(:question).permit(:content, :answered, category_ids: [], categories_attributes: [:name])
+  end
 
-    def edit
-    end
-
-    def update
-        redirect_to user_question_path(username,@question) if @question.update(question_params)
-    end
-
-    def destroy
-        if @question.destroy
-            flash[:success] = "The content was deleted successfully."
-            redirect_to user_questions_path(username)
-        else
-            flash[:error] = "The content couldn't be deleted."
-            redirect_to user_question_path(@question.user,@question)
-        end
-    end
-
-    private
-        def question_params
-            params.require(:question).permit(:content, :answered, category_ids:[], categories_attributes:[:name])
-        end
-
-        def set_question
-            @question = current_user.questions.find_by(id:params[:id])
-        end
+  def set_question
+    @question = current_user.questions.find_by(id: params[:id])
+  end
 end

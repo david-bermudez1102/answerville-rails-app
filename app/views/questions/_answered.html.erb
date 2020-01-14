@@ -1,8 +1,8 @@
 <%= cell "row", "col display-4 text-center text-secondary" do %>
-        <%= icon("fa-check-circle") %> Question has been answered
+  <%= icon("fa-check-circle") %> Question has been answered
 <% end %>
 <% if owner?(question) %>
-    <%= cell "row pt-4", "col my-auto text-center" do %>
-        <%= link_to "Unmark as answered", user_question_path(username,question, question:{answered:false}), class:"btn btn-danger", data: { method: :patch } %>
-    <% end %>
+  <%= cell "row pt-4", "col my-auto text-center" do %>
+    <%= link_to "Unmark as answered", user_question_path(username,question, question:{answered:false}), class:"btn btn-danger", data: { method: :patch } %>
+  <% end %>
 <% end %>
