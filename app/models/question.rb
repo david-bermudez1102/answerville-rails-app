@@ -31,6 +31,10 @@ class Question < ApplicationRecord
         self[:content]
     end
 
+    def self.search(query)
+        where('content LIKE ?', "%#{query}%")
+    end
+
     private
         def capitalized_categories(category_attribute)
             category_attribute.each do |attribute,value|

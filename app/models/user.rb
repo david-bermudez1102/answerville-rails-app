@@ -70,4 +70,8 @@ class User < ApplicationRecord
     def type
         "user"
     end
+
+    def self.search(query)
+        where('name LIKE ? or username LIKE ? or email LIKE ?', "%#{query}%", "%#{query}%", "%#{query}%")
+    end
 end
