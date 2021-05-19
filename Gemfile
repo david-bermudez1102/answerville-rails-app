@@ -51,7 +51,7 @@ group :development, :test do
   gem "rack_session_access"
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
-  gem 'puma', '~> 4.1'
+  gem 'puma', '~> 4.3'
   gem 'rubocop'
   gem 'reek'
 end
